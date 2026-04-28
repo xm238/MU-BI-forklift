@@ -7664,3 +7664,18 @@ i[class*=" icon-"]{
 .shop_slider .blog_slider_header .slick-arrow:focus .button_icon i{
   color: #ffffff !important;
 }
+
+/* Force arrow glyph color even when not an <i> (theme may use pseudo elements) */
+.shop_slider .blog_slider_header .slick-arrow,
+.shop_slider .blog_slider_header .slick-arrow .button_icon,
+.shop_slider .blog_slider_header .slick-arrow .button_icon *{
+  color:#ffffff !important;
+}
+.shop_slider .blog_slider_header .slick-arrow .button_icon:before,
+.shop_slider .blog_slider_header .slick-arrow .button_icon:after{
+  color:#ffffff !important;
+}
+.shop_slider .blog_slider_header .slick-arrow svg{
+  fill:#ffffff !important;
+  stroke:#ffffff !important;
+}
