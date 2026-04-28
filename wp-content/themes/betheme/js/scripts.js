@@ -5515,12 +5515,12 @@ document.addEventListener("touchstart", function(){}, true);
 
 document.addEventListener("DOMContentLoaded", function () {
   var stockImages = [
-    "wp-content/uploads/stock/stock-1.jpg",
-    "wp-content/uploads/stock/stock-2.jpg",
-    "wp-content/uploads/stock/stock-3.jpg",
-    "wp-content/uploads/stock/stock-4.jpg",
-    "wp-content/uploads/stock/stock-5.jpg",
-    "wp-content/uploads/stock/stock-6.jpg"
+    "wp-content/uploads/forklift/forklift-1.jpg",
+    "wp-content/uploads/forklift/forklift-2.jpg",
+    "wp-content/uploads/forklift/forklift-3.jpg",
+    "wp-content/uploads/forklift/forklift-4.jpg",
+    "wp-content/uploads/forklift/forklift-5.jpg",
+    "wp-content/uploads/forklift/forklift-6.jpg"
   ];
 
   var imageIndex = 0;
