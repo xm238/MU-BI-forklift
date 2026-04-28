@@ -7637,6 +7637,40 @@ i[class*=" icon-"]{
     width: 100%;
     max-width: 220px;
   }
+
+  /* Footer widgets: full-width + readable text on mobile */
+  #Footer .widgets_wrapper .textwidget > div[style*="margin-right"],
+  #Footer .widgets_wrapper .textwidget > div[style*="margin-right: 20%"]{
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+
+  #Footer .widgets_wrapper .image_frame,
+  #Footer .widgets_wrapper .image_wrapper,
+  #Footer .widgets_wrapper .image_wrapper img{
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  #Footer .widgets_wrapper h4{
+    color: #0b1320 !important;
+    opacity: 1 !important;
+    text-align: left;
+  }
+
+  #Footer .widgets_wrapper p,
+  #Footer .widgets_wrapper .textwidget,
+  #Footer .widgets_wrapper .textwidget a{
+    color: #1f2937 !important;
+    opacity: 1 !important;
+  }
+
+  #Footer .widgets_wrapper p{
+    font-weight: 500;
+    line-height: 1.55;
+  }
 }
 
 /* Put shop slider arrows below section and force white icon */
