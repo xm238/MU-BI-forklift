@@ -7515,7 +7515,7 @@ i[class*=" icon-"]{
   padding: 6px;
   box-shadow: 0 10px 24px rgba(0,0,0,.35);
   display: none;
-  z-index: 9999;
+  z-index: 99999;
 }
 
 .mu-language-holder.is-open .mu-language-list{
@@ -7553,4 +7553,53 @@ i[class*=" icon-"]{
 .mu-language-option-label{
   font-size: 14px;
   line-height: 1.2;
+}
+
+/* Image text cards UX improvements */
+.mu-service-card-bg{
+  position: relative;
+  overflow: hidden;
+  background-size: 104% auto !important;
+  background-position: center !important;
+  transition: background-size .2s ease-out;
+}
+.mu-service-card-bg:before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,18,32,.26) 0%, rgba(10,18,32,.35) 100%);
+  backdrop-filter: blur(1.2px);
+}
+.mu-service-card-bg > *{
+  position: relative;
+  z-index: 1;
+}
+.mu-service-card-bg:hover{
+  background-size: 110% auto !important;
+}
+.mu-service-card-bg h4,
+.mu-service-card-bg p{
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,.4);
+}
+
+@media only screen and (max-width: 767px){
+  .mu-service-card-bg{
+    text-align: center !important;
+    padding: 24px 18px !important;
+    background-size: cover !important;
+  }
+  .mu-service-card-bg:hover{
+    background-size: cover !important;
+  }
+  .mu-service-card-bg h4,
+  .mu-service-card-bg p{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 95%;
+  }
+  .mu-language-holder{
+    width: 100%;
+    max-width: 220px;
+  }
 }

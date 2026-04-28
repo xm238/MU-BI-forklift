@@ -5515,12 +5515,12 @@ document.addEventListener("touchstart", function(){}, true);
 
 document.addEventListener("DOMContentLoaded", function () {
   var stockImages = [
-    "/wp-content/uploads/stock/stock-1.jpg",
-    "/wp-content/uploads/stock/stock-2.jpg",
-    "/wp-content/uploads/stock/stock-3.jpg",
-    "/wp-content/uploads/stock/stock-4.jpg",
-    "/wp-content/uploads/stock/stock-5.jpg",
-    "/wp-content/uploads/stock/stock-6.jpg"
+    "wp-content/uploads/stock/stock-1.jpg",
+    "wp-content/uploads/stock/stock-2.jpg",
+    "wp-content/uploads/stock/stock-3.jpg",
+    "wp-content/uploads/stock/stock-4.jpg",
+    "wp-content/uploads/stock/stock-5.jpg",
+    "wp-content/uploads/stock/stock-6.jpg"
   ];
 
   var imageIndex = 0;
@@ -5549,10 +5549,11 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("[style]").forEach(function (el) {
     var style = el.getAttribute("style");
     if (!style || style.indexOf("background-image") === -1) return;
+    el.classList.add("mu-service-card-bg");
     el.style.backgroundImage = "url('" + nextImage() + "')";
   });
 
-  var logoPath = "/mu-bi.webp";
+  var logoPath = "mu-bi.webp";
   document.querySelectorAll("#logo img, .logo img").forEach(function (img) {
     img.setAttribute("src", logoPath);
     img.setAttribute("data-retina", logoPath);
@@ -5561,12 +5562,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   var languageItems = [
-    { code: "tr", label: "Türkçe", flag: "/wp-content/plugins/gtranslate/flags/svg/tr.svg" },
-    { code: "en", label: "English", flag: "/wp-content/plugins/gtranslate/flags/svg/en.svg" },
-    { code: "de", label: "Deutsch", flag: "/wp-content/plugins/gtranslate/flags/svg/de.svg" },
-    { code: "fr", label: "Français", flag: "/wp-content/plugins/gtranslate/flags/svg/fr.svg" },
-    { code: "ru", label: "Русский", flag: "/wp-content/plugins/gtranslate/flags/svg/ru.svg" },
-    { code: "ar", label: "العربية", flag: "/wp-content/plugins/gtranslate/flags/svg/ar.svg" }
+    { code: "tr", label: "Türkçe", flag: "wp-content/plugins/gtranslate/flags/svg/tr.svg" },
+    { code: "en", label: "English", flag: "wp-content/plugins/gtranslate/flags/svg/en.svg" },
+    { code: "de", label: "Deutsch", flag: "wp-content/plugins/gtranslate/flags/svg/de.svg" },
+    { code: "fr", label: "Français", flag: "wp-content/plugins/gtranslate/flags/svg/fr.svg" },
+    { code: "ru", label: "Русский", flag: "wp-content/plugins/gtranslate/flags/svg/ru.svg" },
+    { code: "ar", label: "العربية", flag: "wp-content/plugins/gtranslate/flags/svg/ar.svg" }
   ];
 
   function setTranslateLanguage(lang) {
@@ -5652,12 +5653,14 @@ document.addEventListener("DOMContentLoaded", function () {
     trigger.addEventListener("click", function () {
       var isOpen = holder.classList.toggle("is-open");
       trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      triggerCaret.textContent = isOpen ? "▴" : "▾";
     });
 
     document.addEventListener("click", function (event) {
       if (!holder.contains(event.target)) {
         holder.classList.remove("is-open");
         trigger.setAttribute("aria-expanded", "false");
+        triggerCaret.textContent = "▾";
       }
     });
 
