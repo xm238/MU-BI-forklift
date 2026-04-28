@@ -7312,6 +7312,74 @@ html.mfn-popup-browser-scroll-disabled{ overflow: hidden; max-height: 100vh; pad
   --mu-light:#f5f7fb;
 }
 
+#Action_bar,
+#Top_bar,
+#Header { background-color: var(--mu-dark) !important; }
+
+a,
+.menu > li > a span,
+#Top_bar .menu > li.current-menu-item > a span { color: var(--mu-primary) !important; }
+
+.button,
+button,
+input[type="submit"],
+.action_button{
+  background: var(--mu-primary) !important;
+  border-color: var(--mu-primary) !important;
+  color:#fff !important;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+.action_button:hover{
+  background: var(--mu-secondary) !important;
+  border-color: var(--mu-secondary) !important;
+}
+
+/* Increase desktop header logo size */
+#Top_bar #logo img.logo-main,
+#Top_bar #logo img.logo-sticky{
+  max-height: 78px !important;
+  width: auto !important;
+}
+
+.mu-language-holder{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:3px 8px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:8px;
+  background:rgba(255,255,255,.08);
+}
+.mu-language-flag{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  object-fit:cover;
+}
+.mu-language-select{
+  border:none;
+  outline:none;
+  background:transparent;
+  color:#fff;
+  font-size:13px;
+  min-width:130px;
+  cursor:pointer;
+}
+.mu-language-select option{
+  color:#111;
+}
+
+:root{
+  --mu-primary:#0f766e;
+  --mu-secondary:#115e59;
+  --mu-accent:#14b8a6;
+  --mu-dark:#0b1320;
+  --mu-light:#f5f7fb;
+}
+
 body,
 #Wrapper,
 #Content,

@@ -5515,119 +5515,110 @@ document.addEventListener("touchstart", function(){}, true);
 
 document.addEventListener("DOMContentLoaded", function () {
   var stockImages = [
-    "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1501700493788-fa1a4fc9fe62?auto=format&fit=crop&w=1600&q=80"
+    "/wp-content/uploads/stock/stock-1.jpg",
+    "/wp-content/uploads/stock/stock-2.jpg",
+    "/wp-content/uploads/stock/stock-3.jpg",
+    "/wp-content/uploads/stock/stock-4.jpg",
+    "/wp-content/uploads/stock/stock-5.jpg",
+    "/wp-content/uploads/stock/stock-6.jpg"
   ];
-  var imageIndex = 0;
 
+  var imageIndex = 0;
   function nextImage() {
     var img = stockImages[imageIndex % stockImages.length];
     imageIndex += 1;
     return img;
   }
 
-  function replaceImageAttrs(el) {
-    ["src", "data-src", "data-retina", "data-lazyload", "poster"].forEach(function (attr) {
-      var value = el.getAttribute(attr);
-      if (!value) return;
-      if (/teknikistif\.com|themes\.muffingroup\.com|Teknik-\u0130stif|TEKN\u0130K-\u0130ST\u0130F/i.test(value)) {
-        el.setAttribute(attr, nextImage());
-      }
-    });
-
-    var srcset = el.getAttribute("srcset");
-    if (srcset && /teknikistif\.com|themes\.muffingroup\.com/i.test(srcset)) {
-      var replacement = nextImage() + " 1x, " + nextImage() + " 2x";
-      el.setAttribute("srcset", replacement);
-    }
+  function shouldSkipImage(value) {
+    if (!value) return true;
+    return /mu-bi\.webp|flags\/svg|chat-icon\.svg|data:image/i.test(value);
   }
 
-  document.querySelectorAll("img, source, video").forEach(replaceImageAttrs);
+  document.querySelectorAll("img").forEach(function (img) {
+    ["src", "data-src", "data-retina", "data-lazyload", "poster"].forEach(function (attr) {
+      var value = img.getAttribute(attr);
+      if (!value || shouldSkipImage(value)) return;
+      img.setAttribute(attr, nextImage());
+    });
+    if (img.hasAttribute("srcset")) {
+      img.removeAttribute("srcset");
+    }
+  });
 
   document.querySelectorAll("[style]").forEach(function (el) {
     var style = el.getAttribute("style");
-    if (!style) return;
-    if (/teknikistif\.com|themes\.muffingroup\.com/i.test(style) && /background-image/i.test(style)) {
-      el.setAttribute("style", style.replace(/url\((.*?)\)/gi, "url(" + nextImage() + ")"));
-    }
+    if (!style || style.indexOf("background-image") === -1) return;
+    el.style.backgroundImage = "url('" + nextImage() + "')";
   });
 
   var logoPath = "/mu-bi.webp";
   document.querySelectorAll("#logo img, .logo img").forEach(function (img) {
     img.setAttribute("src", logoPath);
     img.setAttribute("data-retina", logoPath);
-    img.setAttribute("alt", "MU&BI");
+    img.setAttribute("alt", "MU&Bİ");
+    img.removeAttribute("srcset");
   });
 
-  var textReplacements = [
-    [/\bTeknik \u0130stif Makinalar[ıi]\b/gi, "Marka 1 Lojistik Cozumleri"],
-    [/\bTeknik \u0130stif\b/gi, "Marka 1"],
-    [/\bteknikistif\b/gi, "marka1"],
-    [/\bHyster\b/gi, "Marka 2"],
-    [/\bJungheinrich\b/gi, "Marka 3"],
-    [/\bClark\b/gi, "Marka 4"],
-    [/\bCrown\b/gi, "Marka 5"],
-    [/\bforklift\b/gi, "Arac 1"]
+  var languageItems = [
+    { code: "tr", label: "Türkçe", flag: "/wp-content/plugins/gtranslate/flags/svg/tr.svg" },
+    { code: "en", label: "English", flag: "/wp-content/plugins/gtranslate/flags/svg/en.svg" },
+    { code: "de", label: "Deutsch", flag: "/wp-content/plugins/gtranslate/flags/svg/de.svg" },
+    { code: "fr", label: "Français", flag: "/wp-content/plugins/gtranslate/flags/svg/fr.svg" },
+    { code: "ru", label: "Русский", flag: "/wp-content/plugins/gtranslate/flags/svg/ru.svg" },
+    { code: "ar", label: "العربية", flag: "/wp-content/plugins/gtranslate/flags/svg/ar.svg" }
   ];
 
-  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
-  var textNode;
-  while ((textNode = walker.nextNode())) {
-    var original = textNode.nodeValue;
-    var nextValue = original;
-    textReplacements.forEach(function (pair) {
-      nextValue = nextValue.replace(pair[0], pair[1]);
-    });
-    if (nextValue !== original) {
-      textNode.nodeValue = nextValue;
+  function setTranslateLanguage(lang) {
+    document.cookie = "googtrans=/tr/" + lang + ";path=/";
+    if (typeof window.doGTranslate === "function") {
+      window.doGTranslate("tr|" + lang);
+    } else {
+      window.location.reload();
     }
   }
 
-  document.querySelectorAll(".social a, #social-menu a").forEach(function (a) {
-    if (!a.closest(".menu-item-gtranslate")) {
-      a.setAttribute("href", "#");
-      a.setAttribute("target", "_self");
-    }
-  });
-
-  var socialIconMap = {
-    facebook: "F",
-    instagram: "I",
-    youtube: "Y",
-    linkedin: "L",
-    twitter: "X"
-  };
-  document.querySelectorAll("ul.social li").forEach(function (li) {
-    var key = Object.keys(socialIconMap).find(function (k) {
-      return li.classList.contains(k);
-    });
-    if (!key) return;
-    var icon = li.querySelector("i");
-    if (!icon) return;
-    icon.className = "mu-social-icon";
-    icon.textContent = socialIconMap[key];
-  });
-
   document.querySelectorAll(".menu-item-gtranslate").forEach(function (wrap) {
+    wrap.classList.add("mu-lang-ready");
     var select = document.createElement("select");
     select.className = "mu-language-select";
-    [
-      ["tr", "Turkce"],
-      ["en", "Ingilizce"],
-      ["de", "Almanca"],
-      ["fr", "Fransizca"],
-      ["ar", "Arapca"]
-    ].forEach(function (item) {
+
+    languageItems.forEach(function (item) {
       var opt = document.createElement("option");
-      opt.value = item[0];
-      opt.textContent = item[1];
+      opt.value = item.code;
+      opt.textContent = item.label;
+      opt.setAttribute("data-flag", item.flag);
       select.appendChild(opt);
     });
+
+    select.value = "tr";
+    select.addEventListener("change", function () {
+      setTranslateLanguage(select.value);
+    });
+
+    var icon = document.createElement("img");
+    icon.className = "mu-language-flag";
+    icon.src = languageItems[0].flag;
+    icon.alt = "Türkçe";
+
+    select.addEventListener("change", function () {
+      var selected = languageItems.find(function (x) { return x.code === select.value; });
+      if (selected) {
+        icon.src = selected.flag;
+        icon.alt = selected.label;
+      }
+    });
+
+    var holder = document.createElement("div");
+    holder.className = "mu-language-holder";
+    holder.appendChild(icon);
+    holder.appendChild(select);
+
     wrap.innerHTML = "";
-    wrap.appendChild(select);
+    wrap.appendChild(holder);
+  });
+
+  document.querySelectorAll(".social a, #social-menu a").forEach(function (a) {
+    if (!a.closest(".menu-item-gtranslate")) a.setAttribute("href", "#");
   });
 });
