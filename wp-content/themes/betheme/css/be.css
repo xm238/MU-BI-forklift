@@ -7656,5 +7656,11 @@ i[class*=" icon-"]{
   margin:0 auto;
 }
 .shop_slider .blog_slider_header .slick-arrow .button_icon i{
-  color:#fff !important;
+  color: rgba(255,255,255,.95) !important;
+}
+
+/* Ensure arrow glyphs stay light on all states */
+.shop_slider .blog_slider_header .slick-arrow:hover .button_icon i,
+.shop_slider .blog_slider_header .slick-arrow:focus .button_icon i{
+  color: #ffffff !important;
 }
