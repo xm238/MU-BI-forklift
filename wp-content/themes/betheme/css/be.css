@@ -7648,12 +7648,33 @@ i[class*=" icon-"]{
   order:1;
 }
 .shop_slider .blog_slider_header{
-  order:2;
+  order:3;
   margin-top:14px;
   width:100%;
 }
 .shop_slider .blog_slider_header .slider_navigation{
   margin:0 auto;
+}
+.shop_slider .slider_pager{
+  order:2;
+  margin-top:16px;
+}
+.shop_slider .mu-all-products{
+  order:4;
+  margin-top:14px;
+  align-self:flex-end;
+  font-weight:600;
+}
+.shop_slider .mu-all-products a{
+  color: var(--mu-primary) !important;
+}
+
+.mu-section-line{
+  height:1px;
+  width:100%;
+  margin-top:14px;
+  background:#080b14;
+  opacity:.9;
 }
 .shop_slider .blog_slider_header .slick-arrow .button_icon i{
   color: rgba(255,255,255,.95) !important;
