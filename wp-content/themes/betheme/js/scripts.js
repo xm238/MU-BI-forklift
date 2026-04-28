@@ -5578,44 +5578,98 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  document.querySelectorAll(".menu-item-gtranslate").forEach(function (wrap) {
-    wrap.classList.add("mu-lang-ready");
-    var select = document.createElement("select");
-    select.className = "mu-language-select";
+  function getCurrentLanguageCode() {
+    var cookie = document.cookie.match(/(?:^|;\s*)googtrans=\/tr\/([a-zA-Z-]+)/);
+    if (cookie && cookie[1]) return cookie[1];
+    return "tr";
+  }
 
-    languageItems.forEach(function (item) {
-      var opt = document.createElement("option");
-      opt.value = item.code;
-      opt.textContent = item.label;
-      opt.setAttribute("data-flag", item.flag);
-      select.appendChild(opt);
-    });
-
-    select.value = "tr";
-    select.addEventListener("change", function () {
-      setTranslateLanguage(select.value);
-    });
-
-    var icon = document.createElement("img");
-    icon.className = "mu-language-flag";
-    icon.src = languageItems[0].flag;
-    icon.alt = "Türkçe";
-
-    select.addEventListener("change", function () {
-      var selected = languageItems.find(function (x) { return x.code === select.value; });
-      if (selected) {
-        icon.src = selected.flag;
-        icon.alt = selected.label;
-      }
-    });
+  function createLanguageDropdown(wrap) {
+    var activeCode = getCurrentLanguageCode();
+    var activeItem = languageItems.find(function (item) { return item.code === activeCode; }) || languageItems[0];
 
     var holder = document.createElement("div");
     holder.className = "mu-language-holder";
-    holder.appendChild(icon);
-    holder.appendChild(select);
 
+    var trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "mu-language-trigger";
+    trigger.setAttribute("aria-expanded", "false");
+
+    var triggerFlag = document.createElement("img");
+    triggerFlag.className = "mu-language-flag";
+    triggerFlag.src = activeItem.flag;
+    triggerFlag.alt = activeItem.label;
+
+    var triggerLabel = document.createElement("span");
+    triggerLabel.className = "mu-language-label";
+    triggerLabel.textContent = activeItem.label;
+
+    var triggerCaret = document.createElement("span");
+    triggerCaret.className = "mu-language-caret";
+    triggerCaret.textContent = "▾";
+
+    trigger.appendChild(triggerFlag);
+    trigger.appendChild(triggerLabel);
+    trigger.appendChild(triggerCaret);
+
+    var list = document.createElement("div");
+    list.className = "mu-language-list";
+
+    languageItems.forEach(function (item) {
+      var option = document.createElement("button");
+      option.type = "button";
+      option.className = "mu-language-option";
+      option.setAttribute("data-lang", item.code);
+      if (item.code === activeItem.code) option.classList.add("is-active");
+
+      var optionFlag = document.createElement("img");
+      optionFlag.className = "mu-language-option-flag";
+      optionFlag.src = item.flag;
+      optionFlag.alt = item.label;
+
+      var optionLabel = document.createElement("span");
+      optionLabel.className = "mu-language-option-label";
+      optionLabel.textContent = item.label;
+
+      option.appendChild(optionFlag);
+      option.appendChild(optionLabel);
+
+      option.addEventListener("click", function () {
+        triggerFlag.src = item.flag;
+        triggerFlag.alt = item.label;
+        triggerLabel.textContent = item.label;
+        list.querySelectorAll(".mu-language-option").forEach(function (el) { el.classList.remove("is-active"); });
+        option.classList.add("is-active");
+        holder.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+        setTranslateLanguage(item.code);
+      });
+
+      list.appendChild(option);
+    });
+
+    trigger.addEventListener("click", function () {
+      var isOpen = holder.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!holder.contains(event.target)) {
+        holder.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    holder.appendChild(trigger);
+    holder.appendChild(list);
     wrap.innerHTML = "";
     wrap.appendChild(holder);
+  }
+
+  document.querySelectorAll(".menu-item-gtranslate").forEach(function (wrap) {
+    wrap.classList.add("mu-lang-ready");
+    createLanguageDropdown(wrap);
   });
 
   document.querySelectorAll(".social a, #social-menu a").forEach(function (a) {

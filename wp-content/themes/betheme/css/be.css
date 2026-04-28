@@ -7451,3 +7451,106 @@ i[class*=" icon-"]{
   border-radius:6px;
   padding:4px 8px;
 }
+
+/* Custom language dropdown UI */
+.mu-language-holder{
+  position: relative;
+  width: 190px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.mu-language-trigger{
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 10px;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  padding: 0 34px 0 40px;
+}
+
+.mu-language-trigger .mu-language-flag{
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block !important;
+}
+
+.mu-language-label{
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 38px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.mu-language-caret{
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  opacity: .9;
+}
+
+.mu-language-list{
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: #0b1320;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  display: none;
+  z-index: 9999;
+}
+
+.mu-language-holder.is-open .mu-language-list{
+  display: block;
+}
+
+.mu-language-option{
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  padding: 8px 10px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.mu-language-option:hover,
+.mu-language-option.is-active{
+  background: rgba(20,184,166,.18);
+}
+
+.mu-language-option-flag{
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 18px;
+  display: block !important;
+}
+
+.mu-language-option-label{
+  font-size: 14px;
+  line-height: 1.2;
+}
