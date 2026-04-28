@@ -7679,3 +7679,20 @@ i[class*=" icon-"]{
   fill:#ffffff !important;
   stroke:#ffffff !important;
 }
+
+/* Shop slider arrows (actual buttons are a.slider_prev/next with <i>) */
+.shop_slider .blog_slider_header a.slider_prev i,
+.shop_slider .blog_slider_header a.slider_next i{
+  color:#ffffff !important;
+}
+
+/* If theme adds a dark chevron via pseudo-elements, force borders to white */
+.shop_slider .blog_slider_header a.slider_prev:before,
+.shop_slider .blog_slider_header a.slider_prev:after,
+.shop_slider .blog_slider_header a.slider_next:before,
+.shop_slider .blog_slider_header a.slider_next:after{
+  border-left-color:#ffffff !important;
+  border-right-color:#ffffff !important;
+  border-top-color:#ffffff !important;
+  border-bottom-color:#ffffff !important;
+}
