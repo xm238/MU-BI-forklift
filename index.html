@@ -2,6 +2,7 @@
 <html dir="ltr" lang="tr" prefix="og: https://ogp.me/ns#" class="no-js " itemscope itemtype="https://schema.org/WebPage" >
 
 <head>
+<link rel="icon" href="dark-mode-white-logo.png" type="image/png">
 
 <meta charset="UTF-8" />
 <title>Forklift Kiralama Hizmetleri - MU&Bİ</title>
@@ -134,6 +135,38 @@ form input.display-none{display:none!important}
   .custom-contact-map iframe {
     min-height: 300px !important;
   }
+}
+
+/* Branding Color Overrides */
+#Footer .widget_text p, 
+#Footer .widget_text a,
+#Footer .textwidget p,
+#Footer .textwidget a {
+  color: #a3a3a3 !important;
+}
+#Footer .widget_text a:hover,
+#Footer .textwidget a:hover {
+  color: #ffffff !important;
+}
+
+#Side_slide .menu_wrapper a,
+#Side_slide a {
+  color: #ffffff !important;
+}
+#Side_slide .menu_wrapper a:hover,
+#Side_slide a:hover {
+  color: #cccccc !important;
+}
+
+.custom-contact-form button[type="submit"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  transition: all 0.3s ease;
+}
+.custom-contact-form button[type="submit"]:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
 }
 </style>
 <script type="text/javascript" src="wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
@@ -666,7 +699,6 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 (function() {
     var media = window.matchMedia ? window.matchMedia('(max-width: 767px)') : null;
     var overlay = document.getElementById('body_overlay');
-    var lastTouchY = null;
 
     function isMobile() {
         return media ? media.matches : window.innerWidth < 768;
@@ -686,51 +718,6 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
         }
     }
 
-    function shouldForcePageScroll(event) {
-        if (!isMobile() || document.body.classList.contains('side-slide-is-open')) {
-            return false;
-        }
-
-        return !(event.target && event.target.closest && event.target.closest('#Side_slide'));
-    }
-
-    function forceWheelScroll(event) {
-        if (!shouldForcePageScroll(event) || !event.deltaY) {
-            return;
-        }
-
-        event.preventDefault();
-        window.scrollBy(0, event.deltaY);
-    }
-
-    function rememberTouchStart(event) {
-        if (!shouldForcePageScroll(event) || event.touches.length !== 1) {
-            lastTouchY = null;
-            return;
-        }
-
-        lastTouchY = event.touches[0].clientY;
-    }
-
-    function forceTouchScroll(event) {
-        if (!shouldForcePageScroll(event) || lastTouchY === null || event.touches.length !== 1) {
-            return;
-        }
-
-        var currentTouchY = event.touches[0].clientY;
-        var deltaY = lastTouchY - currentTouchY;
-
-        if (deltaY) {
-            event.preventDefault();
-            window.scrollBy(0, deltaY);
-            lastTouchY = currentTouchY;
-        }
-    }
-
-    function clearForcedTouchScroll() {
-        lastTouchY = null;
-    }
-
     new MutationObserver(syncSideSlideScrollLock).observe(document.body, {
         attributes: true,
         attributeFilter: ['class']
@@ -746,12 +733,6 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
         overlay.addEventListener('touchmove', stopOverlayScroll, { passive: false });
         overlay.addEventListener('wheel', stopOverlayScroll, { passive: false });
     }
-
-    document.addEventListener('wheel', forceWheelScroll, { passive: false, capture: true });
-    document.addEventListener('touchstart', rememberTouchStart, { passive: true, capture: true });
-    document.addEventListener('touchmove', forceTouchScroll, { passive: false, capture: true });
-    document.addEventListener('touchend', clearForcedTouchScroll, { passive: true, capture: true });
-    document.addEventListener('touchcancel', clearForcedTouchScroll, { passive: true, capture: true });
 
     syncSideSlideScrollLock();
 })();
