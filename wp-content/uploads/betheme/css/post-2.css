@@ -1874,24 +1874,35 @@ svg path {
     transform: none !important;
   }
 
-  /* Kill the pin container height */
+  /* Restore sticky parallax with safe mobile height */
   .mu-hero-pin {
-    height: auto !important;
-    min-height: unset !important;
+    height: 180vh !important;
+    min-height: 1000px !important;
+    display: block !important;
+    overflow: visible !important;
   }
 
   .mu-hero {
-    position: relative !important;
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
     height: 100vh !important;
     height: 100svh !important;
     min-height: 500px !important;
-    z-index: 10 !important;
+    z-index: 5 !important;
     touch-action: pan-y !important;
     pointer-events: auto !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  /* Force touch priority */
-  * {
-    touch-action: auto !important;
+  .mu-hero-image {
+    display: block !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 }
+
