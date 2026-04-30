@@ -1847,3 +1847,848 @@ svg path {
   display: none;
   /* Hidden by default, script will show if needed */
 }
+
+/* Final mobile and UI polish */
+@media only screen and (max-width: 767px) {
+  html,
+  body {
+    overscroll-behavior-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+#Action_bar .menu-item-gtranslate.is-open .dropdown-menu {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+#Action_bar .menu-item-gtranslate.is-open>a.gt-current-wrapper::after {
+  transform: rotate(225deg) translateY(-1px);
+}
+
+#Side_slide {
+  background: #05070a !important;
+  color: #f8fafc !important;
+}
+
+#Side_slide .close-wrapper {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#Side_slide a.close {
+  color: rgba(248, 250, 252, 0.78) !important;
+}
+
+#Side_slide .extras .action_button {
+  background: #ffffff !important;
+  color: #05070a !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+}
+
+#Side_slide .extras .action_button span {
+  color: #05070a !important;
+}
+
+#Side_slide .extras .action_button:hover {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+#Side_slide .extras .action_button:hover span {
+  color: #ffffff !important;
+}
+
+#Side_slide #menu ul li a {
+  color: rgba(248, 250, 252, 0.78) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#Side_slide #menu ul li a:hover,
+#Side_slide #menu ul li:hover>a,
+#Side_slide #menu ul li.current-menu-item>a,
+#Side_slide #menu ul li.current_page_item>a {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+#Side_slide .menu-item-gtranslate>a.gt-current-wrapper {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  border-radius: 0 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #f8fafc !important;
+}
+
+#Side_slide .menu-item-gtranslate .dropdown-menu {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 0 !important;
+  background: #0f172a !important;
+}
+
+#Side_slide .menu-item-gtranslate .dropdown-menu a {
+  color: rgba(248, 250, 252, 0.78) !important;
+  border-radius: 0 !important;
+}
+
+#Side_slide .menu-item-gtranslate .dropdown-menu a:hover,
+#Side_slide .menu-item-gtranslate .dropdown-menu .gt-current-lang {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+#iletisim .custom-contact-layout {
+  overflow: hidden;
+  border: 1px solid var(--mu-border);
+  border-radius: 0 !important;
+  background: #ffffff;
+  box-shadow: none !important;
+}
+
+#iletisim .custom-contact-form {
+  background: #05070a !important;
+  color: #ffffff !important;
+}
+
+#iletisim .custom-contact-form h3 {
+  color: #ffffff !important;
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+#iletisim .contact-form input,
+#iletisim .contact-form textarea {
+  width: 100% !important;
+  min-height: 48px;
+  margin-bottom: 14px !important;
+  padding: 13px 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  box-sizing: border-box;
+}
+
+#iletisim .contact-form textarea {
+  min-height: 126px;
+  resize: vertical;
+}
+
+#iletisim .contact-form input::placeholder,
+#iletisim .contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.62) !important;
+}
+
+#iletisim .contact-form button[type="submit"] {
+  min-height: 50px;
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+  background: #ffffff !important;
+  color: #05070a !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: none !important;
+}
+
+#iletisim .contact-form button[type="submit"]:hover {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+#Footer,
+#Footer .widgets_wrapper,
+#Footer .footer_copy {
+  background: #05070a !important;
+}
+
+#Footer .widgets_wrapper {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#Footer .widget h4 {
+  color: #ffffff !important;
+}
+
+#Footer .widget_text,
+#Footer .widget_mfn_menu {
+  color: rgba(248, 250, 252, 0.66) !important;
+}
+
+#Footer .footer_copy .social {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+#Footer .footer_copy .social li {
+  margin: 0 !important;
+}
+
+#Footer .footer_copy .social li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+#Footer .footer_copy .social li.phone a {
+  background: #16a34a;
+}
+
+#Footer .footer_copy .social li.email a {
+  background: #2563eb;
+}
+
+#Footer .footer_copy .social li.whatsapp a {
+  background: #25d366;
+}
+
+#Footer .footer_copy .social li.maps a {
+  background: #ea4335;
+}
+
+#Footer .footer_copy .social li a:hover {
+  opacity: 0.82;
+}
+
+@media only screen and (max-width: 959px) {
+  #forklift-cozumleri {
+    padding-top: 44px !important;
+    padding-bottom: 26px !important;
+  }
+
+  #forklift-cozumleri .section_wrapper {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  #forklift-cozumleri .mcb-wrap-inner-969e853e7 {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  #forklift-cozumleri .mcb-column {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  #forklift-cozumleri .mcb-item-d03f64d7a {
+    display: none !important;
+  }
+
+  #forklift-cozumleri .mcb-item-zt3g4xlmz .column_attr {
+    max-width: 360px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  #forklift-cozumleri .mcb-item-zt3g4xlmz {
+    display: none !important;
+  }
+
+  #forklift-cozumleri .mcb-item-121952dfd h1 {
+    max-width: 560px;
+    margin: 0 auto !important;
+    color: var(--mu-ink) !important;
+    font-size: 42px !important;
+    line-height: 1.08 !important;
+    text-align: center;
+  }
+
+  #forklift-cozumleri .mcb-item-121952dfd .column_attr>div {
+    width: 96px !important;
+    margin-top: 18px !important;
+  }
+
+  #forklift-cozumleri .mu-service-card {
+    min-height: 340px !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-bg {
+    height: 100% !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  #forklift-cozumleri .mu-service-card:hover .mu-service-card-bg {
+    transform: none !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-overlay {
+    background: linear-gradient(180deg, rgba(5, 7, 10, 0.12) 0%, rgba(5, 7, 10, 0.48) 42%, rgba(5, 7, 10, 0.88) 100%) !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-content {
+    padding: 26px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #forklift-cozumleri .section_wrapper {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  #forklift-cozumleri .mcb-item-121952dfd h1 {
+    max-width: 340px;
+    font-size: 30px !important;
+    line-height: 1.12 !important;
+  }
+
+  #forklift-cozumleri .mu-service-card {
+    min-height: 300px !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-content {
+    padding: 22px !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-content h4 {
+    font-size: 21px !important;
+    line-height: 1.22 !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-content p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  #iletisim {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+
+  #iletisim .custom-contact-form {
+    padding: 30px 22px !important;
+  }
+
+  #Footer {
+    padding-top: 50px;
+  }
+
+  #Footer .widgets_wrapper {
+    padding: 38px 0 28px;
+  }
+
+  #Footer .footer_copy .mcb-column-inner {
+    display: grid;
+    gap: 16px;
+    justify-items: center;
+  }
+
+  #Footer .footer_copy .social {
+    justify-content: center;
+  }
+}
+
+/* Mobile service-card hardening */
+@media only screen and (max-width: 959px) {
+  #forklift-cozumleri .mcb-item-d94739874,
+  #forklift-cozumleri .mcb-item-9fda8bc57,
+  #forklift-cozumleri .mcb-item-4c3a5d67e,
+  #forklift-cozumleri .mcb-item-db153c88c {
+    display: block !important;
+    float: none !important;
+    clear: both !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #forklift-cozumleri .mcb-item-d94739874 .mcb-column-inner,
+  #forklift-cozumleri .mcb-item-9fda8bc57 .mcb-column-inner,
+  #forklift-cozumleri .mcb-item-4c3a5d67e .mcb-column-inner,
+  #forklift-cozumleri .mcb-item-db153c88c .mcb-column-inner {
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  #forklift-cozumleri .mu-service-card {
+    display: grid !important;
+    grid-template-rows: 190px auto !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    background: #05070a !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+
+  #forklift-cozumleri .mu-service-card::before,
+  #forklift-cozumleri .mu-service-card::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-bg {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    height: 190px !important;
+    min-height: 190px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    filter: none !important;
+    transform: none !important;
+    z-index: 0 !important;
+  }
+
+  #forklift-cozumleri .mu-service-card:hover .mu-service-card-bg {
+    transform: none !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-overlay {
+    display: none !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-content {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: auto !important;
+    min-height: 0 !important;
+    padding: 24px !important;
+    background: #05070a !important;
+    color: #ffffff !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 1 !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-content h4,
+  #forklift-cozumleri .mu-service-card-content p {
+    position: static !important;
+    display: block !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-shadow: none !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-content h4 {
+    margin: 0 0 10px !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-content p {
+    margin: 0 !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  #forklift-cozumleri .mcb-wrap-inner-969e853e7 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #forklift-cozumleri .mcb-item-zt3g4xlmz,
+  #forklift-cozumleri .mcb-item-121952dfd {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #forklift-cozumleri .mcb-wrap-inner-969e853e7 {
+    gap: 16px !important;
+  }
+
+  #forklift-cozumleri .mcb-item-zt3g4xlmz .column_attr {
+    font-size: 13px !important;
+  }
+
+  #forklift-cozumleri .mu-service-card {
+    grid-template-rows: 170px auto !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-bg {
+    height: 170px !important;
+    min-height: 170px !important;
+  }
+
+  #forklift-cozumleri .mu-service-card-content {
+    padding: 20px !important;
+  }
+}
+
+/* Final mobile polish pass */
+.slider_navigation a,
+.slider_navigation .button,
+.slider_navigation .slick-arrow,
+.blog_slider_header .slider_navigation a,
+.blog_slider_header .slider_navigation .button,
+.shop_slider .slider_navigation a {
+  background: #05070a !important;
+  border: 1px solid #05070a !important;
+  border-radius: 2px !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+.slider_navigation a:hover,
+.slider_navigation .button:hover,
+.slider_navigation .slick-arrow:hover,
+.blog_slider_header .slider_navigation a:hover,
+.blog_slider_header .slider_navigation .button:hover,
+.shop_slider .slider_navigation a:hover {
+  background: #ffffff !important;
+  border-color: #05070a !important;
+  color: #05070a !important;
+}
+
+.slider_navigation a i,
+.slider_navigation .button i,
+.slider_navigation .slick-arrow i,
+.slider_navigation a::before,
+.slider_navigation .button::before,
+.slider_navigation .slick-arrow::before {
+  color: inherit !important;
+}
+
+#forklift-cozumleri .mu-service-card-bg {
+  filter: none !important;
+  transform: scale(1) !important;
+  transition: transform 0.42s ease !important;
+  will-change: transform;
+}
+
+#forklift-cozumleri .mu-service-card:hover .mu-service-card-bg {
+  transform: scale(1.045) !important;
+}
+
+#forklift-cozumleri .mu-service-card-content {
+  background: #05070a !important;
+}
+
+#Top_bar a.responsive-menu-toggle,
+body:not(.mu-scrolled) #Top_bar a.responsive-menu-toggle,
+body.mu-scrolled #Top_bar a.responsive-menu-toggle {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+body:not(.mu-scrolled) #Top_bar a.responsive-menu-toggle {
+  color: #ffffff !important;
+}
+
+body.mu-scrolled #Top_bar a.responsive-menu-toggle {
+  color: #05070a !important;
+}
+
+#Top_bar a.responsive-menu-toggle:hover,
+#Top_bar a.responsive-menu-toggle:focus,
+#Top_bar a.responsive-menu-toggle:focus-visible {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+body:not(.mu-scrolled) #Top_bar a.responsive-menu-toggle:hover,
+body:not(.mu-scrolled) #Top_bar a.responsive-menu-toggle:focus-visible {
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+body.mu-scrolled #Top_bar a.responsive-menu-toggle:hover,
+body.mu-scrolled #Top_bar a.responsive-menu-toggle:focus-visible {
+  background: rgba(5, 7, 10, 0.08) !important;
+}
+
+#Side_slide,
+#Side_slide .menu_wrapper,
+#Side_slide #menu,
+#Side_slide #menu ul,
+#Side_slide .lang-wrapper,
+#Side_slide .extras-wrapper {
+  background: #05070a !important;
+  color: #f8fafc !important;
+}
+
+#Side_slide .menu_wrapper,
+#Side_slide #menu,
+#Side_slide #menu ul {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#Side_slide #menu ul li {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+#Side_slide #menu ul li a {
+  display: flex !important;
+  align-items: center;
+  width: 100% !important;
+  min-height: 58px;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  text-decoration: none !important;
+}
+
+#Side_slide #menu ul li a span {
+  color: inherit !important;
+}
+
+#Side_slide #menu ul li a:hover,
+#Side_slide #menu ul li:hover>a,
+#Side_slide #menu ul li.current-menu-item>a,
+#Side_slide #menu ul li.current_page_item>a {
+  width: 100% !important;
+  background: #171717 !important;
+  color: #ffffff !important;
+}
+
+#Side_slide .extras .action_button,
+#Side_slide .extras .action_button:hover {
+  width: calc(100% - 40px) !important;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+  text-decoration: none !important;
+}
+
+#Side_slide .extras .action_button {
+  background: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  color: #05070a !important;
+}
+
+#Side_slide .extras .action_button span {
+  color: #05070a !important;
+}
+
+#Side_slide .extras .action_button:hover {
+  background: #05070a !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+#Side_slide .extras .action_button:hover span {
+  color: #ffffff !important;
+}
+
+#Side_slide .menu-item-gtranslate>a.gt-current-wrapper {
+  width: calc(100% - 40px) !important;
+  margin: 20px 20px 0 !important;
+  background: #111111 !important;
+  border: 1px solid #3a3a3a !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+#Side_slide .menu-item-gtranslate .dropdown-menu {
+  width: calc(100% - 40px) !important;
+  margin: 10px 20px 0 !important;
+  background: #0b0b0b !important;
+  border: 1px solid #2f2f2f !important;
+  box-shadow: none !important;
+}
+
+#Side_slide .menu-item-gtranslate .dropdown-menu a {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.74) !important;
+  text-decoration: none !important;
+}
+
+#Side_slide .menu-item-gtranslate .dropdown-menu a:hover,
+#Side_slide .menu-item-gtranslate .dropdown-menu .gt-current-lang {
+  background: #242424 !important;
+  color: #ffffff !important;
+}
+
+#chaty-widget-0 .chaty-channel-list .Phone-channel,
+#chaty-widget-0 .chaty-channel-list .Phone-channel a,
+#chaty-widget-0 .chaty-channel-list .Phone-channel button,
+#chaty-widget-0 .chaty-channel-list .Phone-channel .chaty-svg {
+  background: #16a34a !important;
+}
+
+#chaty-widget-0 .chaty-channel-list .Email-channel,
+#chaty-widget-0 .chaty-channel-list .Email-channel a,
+#chaty-widget-0 .chaty-channel-list .Email-channel button,
+#chaty-widget-0 .chaty-channel-list .Email-channel .chaty-svg {
+  background: #2563eb !important;
+}
+
+#chaty-widget-0 .chaty-channel-list .Whatsapp-channel,
+#chaty-widget-0 .chaty-channel-list .Whatsapp-channel a,
+#chaty-widget-0 .chaty-channel-list .Whatsapp-channel button,
+#chaty-widget-0 .chaty-channel-list .Whatsapp-channel .chaty-svg {
+  background: #25d366 !important;
+}
+
+#chaty-widget-0 .chaty-channel-list .Google_Maps-channel,
+#chaty-widget-0 .chaty-channel-list .Google_Maps-channel a,
+#chaty-widget-0 .chaty-channel-list .Google_Maps-channel button,
+#chaty-widget-0 .chaty-channel-list .Google_Maps-channel .chaty-svg {
+  background: #ea4335 !important;
+}
+
+#chaty-widget-0 .chaty-channel-list .Phone-channel svg circle,
+#chaty-widget-0 .chaty-channel-list .Phone-channel svg .color-element {
+  fill: #16a34a !important;
+}
+
+#chaty-widget-0 .chaty-channel-list .Email-channel svg circle,
+#chaty-widget-0 .chaty-channel-list .Email-channel svg .color-element {
+  fill: #2563eb !important;
+}
+
+#chaty-widget-0 .chaty-channel-list .Whatsapp-channel svg circle,
+#chaty-widget-0 .chaty-channel-list .Whatsapp-channel svg .color-element {
+  fill: #25d366 !important;
+}
+
+#chaty-widget-0 .chaty-channel-list .Google_Maps-channel svg circle,
+#chaty-widget-0 .chaty-channel-list .Google_Maps-channel svg .color-element {
+  fill: #ea4335 !important;
+}
+
+#chaty-widget-0 .chaty-channel-list .chaty-channel svg path {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+#chaty-widget-0 .chaty-channel-list .chaty-channel {
+  box-shadow: 0 12px 28px rgba(5, 7, 10, 0.24) !important;
+}
+
+#iletisim input[type="submit"],
+#iletisim button,
+#iletisim .button {
+  background: #05070a !important;
+  border: 1px solid #05070a !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+#iletisim input[type="submit"]:hover,
+#iletisim button:hover,
+#iletisim .button:hover {
+  background: #ffffff !important;
+  border-color: #05070a !important;
+  color: #05070a !important;
+}
+
+#Footer .widget_text,
+#Footer .widget_text p,
+#Footer .widget_text li,
+#Footer .widget_text .textwidget,
+#Footer .widget_mfn_menu,
+#Footer .widget_mfn_menu li,
+#Footer .widget_mfn_menu li a {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+#Footer .widget_text strong,
+#Footer .widget_text h1,
+#Footer .widget_text h2,
+#Footer .widget_text h3,
+#Footer .widget_text h4,
+#Footer .widget_text h5,
+#Footer .widget_text h6 {
+  color: #ffffff !important;
+}
+
+#Footer .widget_text a,
+#Footer .widget_mfn_menu a {
+  color: #f1f5f9 !important;
+}
+
+#Footer .footer_copy,
+#Footer .footer_copy .copyright {
+  color: rgba(255, 255, 255, 0.64) !important;
+}
+
+#Footer a,
+#Footer .textwidget a,
+#Footer .widget_text a,
+#Footer .widget_mfn_menu a,
+#Footer .footer_copy a {
+  color: rgba(255, 255, 255, 0.78) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.24) !important;
+}
+
+#Footer a:hover,
+#Footer .textwidget a:hover,
+#Footer .widget_text a:hover,
+#Footer .widget_mfn_menu a:hover,
+#Footer .footer_copy a:hover {
+  color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+}
+
+@media only screen and (max-width: 767px) {
+  #Footer .widget_text,
+  #Footer .widget_text p,
+  #Footer .widget_text li,
+  #Footer .widget_text .textwidget,
+  #Footer .widget_mfn_menu,
+  #Footer .widget_mfn_menu li,
+  #Footer .widget_mfn_menu li a {
+    color: rgba(255, 255, 255, 0.84) !important;
+  }
+}
+
+#forklift-cozumleri .mu-service-card-bg {
+  background-image: none !important;
+  overflow: hidden !important;
+  line-height: 0 !important;
+  position: relative !important;
+}
+
+#forklift-cozumleri .mu-service-card-bg img {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  filter: none !important;
+  transform: scale(1) !important;
+  transition: transform 0.42s ease !important;
+}
+
+#forklift-cozumleri .mu-service-card:hover .mu-service-card-bg {
+  transform: none !important;
+}
+
+#forklift-cozumleri .mu-service-card:hover .mu-service-card-bg img {
+  transform: scale(1.045) !important;
+}
+
+@media only screen and (max-width: 767px) {
+  #forklift-cozumleri {
+    padding-top: 88px !important;
+  }
+}
