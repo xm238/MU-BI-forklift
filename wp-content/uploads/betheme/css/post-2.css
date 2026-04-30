@@ -913,28 +913,28 @@ body {
   }
 
   .mu-hero-pin {
-    height: auto;
-    min-height: auto;
+    height: 200vh;
+    height: 200svh;
+    min-height: 1000px;
     z-index: 1;
-    overflow: visible;
+  }
+
+  .mu-hero {
+    position: fixed;
+    top: var(--mu-header-height);
+    left: 0;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .mu-hero {
+    min-height: calc(100vh - var(--mu-header-height));
+    min-height: calc(100svh - var(--mu-header-height));
     pointer-events: none;
   }
 
-  .mu-hero {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    z-index: auto;
-    pointer-events: auto;
-    overflow: visible;
-  }
-
-  .mu-hero {
-    min-height: 60vh;
-  }
-  
-  .mu-hero-content {
+  .mu-hero-actions a,
+  .mu-scroll-cue {
     pointer-events: auto;
   }
 
@@ -1387,19 +1387,6 @@ button,
 }
 
 @media only screen and (max-width: 767px) {
-  body.mobile-side-slide:not(.side-slide-is-open) {
-    overflow-y: auto !important;
-    touch-action: pan-y !important;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  html:has(body.side-slide-is-open),
-  html.mu-side-slide-is-open,
-  body.side-slide-is-open {
-    overflow: hidden !important;
-    touch-action: none !important;
-  }
-
   body.side-slide-is-open #Side_slide {
     overflow-y: auto !important;
     overscroll-behavior: contain;

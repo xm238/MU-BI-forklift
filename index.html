@@ -106,44 +106,10 @@ form input.display-none{display:none!important}
 .woocommerce ul.products li.product .desc { background: none; padding: 15px 0; }
 .woocommerce ul.products li.product .desc h4 { margin-bottom: 5px; }
 
-/* MOBILE SCROLL FIX - MAINTAIN SCROLL WHILE KEEPING ANIMATIONS */
+/* MOBILE SCROLL FIX */
 @media only screen and (max-width: 767px) {
-  html,
-  body {
-    overflow-x: visible !important;
-    overflow-y: auto !important;
-    touch-action: pan-y !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-  
   body.responsive-overflow-x-mobile {
     overflow-x: hidden !important;
-    overflow-y: auto !important;
-  }
-  
-  #Wrapper,
-  #Content,
-  .sections_group,
-  .mu-hero-pin,
-  .mu-hero {
-    touch-action: pan-y !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-  
-  .mu-hero-pin {
-    position: relative !important;
-    transform: none !important;
-    will-change: auto !important;
-  }
-  
-  .mu-hero-image,
-  .mu-hero-content {
-    pointer-events: none !important;
-  }
-  
-  .mu-hero-content a,
-  .mu-hero-content button {
-    pointer-events: auto !important;
   }
 }
 </style>
@@ -233,7 +199,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 			//});
 		  };</script>
 
-<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777389997' type='text/css' media='all' />
+<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777390001' type='text/css' media='all' />
 
 </head>
 
@@ -616,13 +582,11 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 (function() {
     const heroContent = document.querySelector('.mu-hero-content');
     const heroPin = document.querySelector('.mu-hero-pin');
-    const sideSlide = document.getElementById('Side_slide');
     if (!heroContent || !heroPin) return;
 
     let pinHeight = 0;
     let viewportHeight = 0;
     let ticking = false;
-    const isMobile = () => window.innerWidth < 768;
 
     function updateMetrics() {
         pinHeight = heroPin.offsetHeight;
@@ -631,16 +595,11 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 
     function updateStyles() {
         const scroll = window.scrollY;
-        
-        // Only apply animation on desktop
-        if (!isMobile() && scroll < pinHeight) {
-            const progress = Math.min(1, scroll / (pinHeight - viewportHeight));
+
+        if (scroll < pinHeight) {
+            const progress = Math.min(1, scroll / Math.max(1, pinHeight - viewportHeight));
             heroContent.style.opacity = 1 - (progress * 1.5);
             heroContent.style.transform = "translateY(" + (scroll * 0.4) + "px)";
-        } else if (isMobile()) {
-            // Reset styles on mobile to allow natural scrolling
-            heroContent.style.opacity = '';
-            heroContent.style.transform = '';
         }
         ticking = false;
     }
@@ -652,27 +611,9 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
         }
     }
 
-    // Use passive listeners - they don't block scrolling
     window.addEventListener('resize', updateMetrics, { passive: true });
     window.addEventListener('scroll', onScroll, { passive: true });
-    
-    // Monitor menu open/close and lock body scroll
-    if (sideSlide) {
-        const observer = new MutationObserver(() => {
-            const isOpen = sideSlide.getAttribute('aria-expanded') === 'true';
-            if (isOpen) {
-                document.body.style.overflow = 'hidden';
-                document.body.style.touchAction = 'none';
-            } else {
-                document.body.style.overflow = '';
-                document.body.style.touchAction = '';
-            }
-        });
-        
-        observer.observe(sideSlide, { attributes: true, attributeFilter: ['aria-expanded'] });
-    }
-    
-    // Initial update
+
     updateMetrics();
     updateStyles();
 })();
