@@ -1386,14 +1386,36 @@ button,
   z-index: 9999 !important;
 }
 
-/* Lock scrolling when menu is open */
-#Side_slide[aria-expanded="true"] {
-  pointer-events: auto !important;
-}
+@media only screen and (max-width: 767px) {
+  body.mobile-side-slide:not(.side-slide-is-open) {
+    overflow-y: auto !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch;
+  }
 
-body:has(#Side_slide[aria-expanded="true"]) {
-  overflow: hidden !important;
-  touch-action: none !important;
+  html:has(body.side-slide-is-open),
+  html.mu-side-slide-is-open,
+  body.side-slide-is-open {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+
+  body.side-slide-is-open #Side_slide {
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #body_overlay {
+    pointer-events: none;
+  }
+
+  body.side-slide-is-open #body_overlay {
+    pointer-events: auto;
+    overscroll-behavior: contain;
+    touch-action: none !important;
+  }
 }
 
 #Side_slide a.close {
