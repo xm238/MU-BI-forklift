@@ -1850,34 +1850,67 @@ svg path {
 }
 
 /* ================================================
-   MOBILE HERO: disable sticky parallax entirely
-   iOS/Android cannot scroll through a sticky element
-   that lives inside a <header> with overflow:hidden.
-   On mobile we make the hero a plain full-viewport block.
+   MOBILE SCROLL & HERO FIX
+   1. Ensure body/html allow scrolling (no theme locks)
+   2. Fix hero height and visibility
+   3. Move hero out of header (already done in HTML)
    ================================================ */
 @media only screen and (max-width: 767px) {
-  /* Kill the 200-vh pin container — just auto height */
-  .mu-hero-pin {
+  /* Kill ANY theme-level overflow locks */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
     height: auto !important;
-    min-height: unset !important;
+    position: static !important;
   }
 
-  /* Make hero a normal block, not sticky */
-  .mu-hero {
-    position: relative !important;
-    top: auto !important;
-    height: 100svh !important;
-    min-height: 560px !important;
-    /* allow native scroll pass-through */
-    overflow: hidden !important;
-    touch-action: pan-y !important;
-  }
-
-  /* Header wrapper must NOT clip or hide overflow on mobile */
-  #Header_wrapper,
-  #Header_wrapper header {
+  #Wrapper, #Content {
     overflow: visible !important;
     height: auto !important;
+    position: relative !important;
+  }
+
+  /* Restore sticky parallax but make it safe */
+  .mu-hero-pin {
+    height: 160vh !important; /* Slightly shorter for mobile */
+    min-height: 800px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .mu-hero {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important; /* No header height on mobile as Top_bar is often static or different */
+    height: 100vh !important;
+    height: 100svh !important;
+    min-height: 500px !important;
+    display: flex !important; /* use flex for center content */
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden !important;
+    z-index: 1 !important;
+    /* CRITICAL: Allow touch events to pass to scroller */
+    touch-action: pan-y !important;
+    pointer-events: auto !important;
+  }
+
+  /* Ensure image is visible */
+  .mu-hero-image {
+    display: block !important;
+    object-fit: cover !important;
+    z-index: -2 !important;
+  }
+
+  /* Fix for BeTheme's Side Slide menu clipping */
+  .mobile-side-slide #Wrapper {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
   }
 }
+
 
