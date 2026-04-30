@@ -1848,3 +1848,36 @@ svg path {
   display: none;
   /* Hidden by default, script will show if needed */
 }
+
+/* ================================================
+   MOBILE HERO: disable sticky parallax entirely
+   iOS/Android cannot scroll through a sticky element
+   that lives inside a <header> with overflow:hidden.
+   On mobile we make the hero a plain full-viewport block.
+   ================================================ */
+@media only screen and (max-width: 767px) {
+  /* Kill the 200-vh pin container — just auto height */
+  .mu-hero-pin {
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  /* Make hero a normal block, not sticky */
+  .mu-hero {
+    position: relative !important;
+    top: auto !important;
+    height: 100svh !important;
+    min-height: 560px !important;
+    /* allow native scroll pass-through */
+    overflow: hidden !important;
+    touch-action: pan-y !important;
+  }
+
+  /* Header wrapper must NOT clip or hide overflow on mobile */
+  #Header_wrapper,
+  #Header_wrapper header {
+    overflow: visible !important;
+    height: auto !important;
+  }
+}
+
