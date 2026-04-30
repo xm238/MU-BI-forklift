@@ -2,7 +2,6 @@
 <html dir="ltr" lang="tr" prefix="og: https://ogp.me/ns#" class="no-js " itemscope itemtype="https://schema.org/WebPage" >
 
 <head>
-<link rel="icon" href="dark-mode-white-logo.png" type="image/png">
 
 <meta charset="UTF-8" />
 <title>Forklift Kiralama Hizmetleri - MU&Bİ</title>
@@ -109,27 +108,8 @@ form input.display-none{display:none!important}
 
 /* MOBILE SCROLL FIX */
 @media only screen and (max-width: 767px) {
-  #Wrapper, #Content, .content_wrapper, .sections_group, .entry-content {
-    overflow: visible !important;
-    height: auto !important;
-    position: relative !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    left: 0 !important;
-    right: 0 !important;
-    transform: none !important;
-  }
-
-  /* Force touch events on everything */
-  * {
-    touch-action: auto !important;
-    -ms-touch-action: auto !important;
-  }
-
-  .mu-hero {
-    position: relative !important;
-    z-index: 10 !important;
-    touch-action: pan-y !important;
+  body.responsive-overflow-x-mobile {
+    overflow-x: hidden !important;
   }
 }
 
@@ -154,38 +134,6 @@ form input.display-none{display:none!important}
   .custom-contact-map iframe {
     min-height: 300px !important;
   }
-}
-
-/* Branding Color Overrides */
-#Footer .widget_text p, 
-#Footer .widget_text a,
-#Footer .textwidget p,
-#Footer .textwidget a {
-  color: #a3a3a3 !important;
-}
-#Footer .widget_text a:hover,
-#Footer .textwidget a:hover {
-  color: #ffffff !important;
-}
-
-#Side_slide .menu_wrapper a,
-#Side_slide a {
-  color: #ffffff !important;
-}
-#Side_slide .menu_wrapper a:hover,
-#Side_slide a:hover {
-  color: #cccccc !important;
-}
-
-.custom-contact-form button[type="submit"] {
-  background-color: #000000 !important;
-  color: #ffffff !important;
-  border: 1px solid #ffffff !important;
-  transition: all 0.3s ease;
-}
-.custom-contact-form button[type="submit"]:hover {
-  background-color: #ffffff !important;
-  color: #000000 !important;
 }
 </style>
 <script type="text/javascript" src="wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
@@ -274,35 +222,9 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 			//});
 		  };</script>
 
-	<style>
-		/* Nuclear touch unlock */
-		#body_overlay { pointer-events: none !important; display: none !important; }
-		.mu-hero { pointer-events: auto !important; touch-action: pan-y !important; }
-		html, body { overflow-y: auto !important; height: auto !important; -webkit-overflow-scrolling: touch !important; }
-	</style>
-	<script>
-		// Force unlock scroll every 500ms for 5 seconds
-		(function() {
-			const unlock = () => {
-				document.documentElement.style.overflow = 'visible';
-				document.documentElement.style.height = 'auto';
-				document.body.style.overflow = 'visible';
-				document.body.style.height = 'auto';
-				document.body.classList.remove('mobile-side-slide', 'responsive-overflow-x-mobile');
-			};
-			for(let i=0; i<20; i++) setTimeout(unlock, i * 250);
-			
-			// Debug: what am I touching?
-			window.addEventListener('touchstart', (e) => {
-				console.log('Touch started on:', e.target);
-				// If we touch something that isn't the content and it's blocking, we'll know
-			}, { passive: true });
-		})();
-	</script>
-	<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777390003' type='text/css' media='all' />
+<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777390003' type='text/css' media='all' />
+
 </head>
-
-
 
 <body data-rsssl=1 class="home page-template-default page page-id-2 theme-betheme woocommerce-no-js woocommerce-block-theme-has-button-styles template-slider  color-custom content-brightness-light input-brightness-light style-default button-animation-slide button-animation-slide-right layout-full-width if-overlay no-content-padding header-classic header-fw sticky-header sticky-tb-color ab-show menu-line-below-80 menuo-right menuo-no-borders subheader-both-center footer-copy-center responsive-overflow-x-mobile mobile-tb-center mobile-side-slide mobile-mini-mr-lc mobile-header-mini mobile-icon-user-ss mobile-icon-wishlist-ss mobile-icon-search-ss mobile-icon-wpml-ss mobile-icon-action-ss be-page-2 be-reg-2753 mfn-all-shop-filters-disabled product-gallery-zoom mobile-row-2-products mfn-variable-swatches mfn-ajax-add-to-cart">
 
@@ -312,25 +234,8 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 		
 		
 		<div id="Wrapper">
-	<div class="mu-hero-pin">
-		<section class="mu-hero" aria-label="Forklift kiralama">
-			<img class="mu-hero-image" src="wp-content/uploads/forklift/forklift-6.jpg" alt="Depoda palet taşıyan kiralık forklift" fetchpriority="high" />
-			<div class="mu-hero-shade" aria-hidden="true"></div>
-			<div class="mu-hero-content">
-				<p class="mu-eyebrow">Forklift Kiralama</p>
-				<h1>İşinize Uygun Forklift, Sahaya Hazır Teslim</h1>
-				<p>Elektrikli, dizel ve LPG forkliftleri kısa ya da uzun dönem kiralayın. Saha keşfi, doğru kapasite seçimi, teslimat, bakım ve operatör desteği tek süreçte yönetilsin.</p>
-				<div class="mu-hero-actions">
-					<a class="mu-primary-link" href="#iletisim">Kiralama Teklifi Al</a>
-					<a class="mu-secondary-link" href="#forklift-modelleri">Kiralık Modeller</a>
-				</div>
-			</div>
-			<a class="mu-scroll-cue" href="#forklift-cozumleri" aria-label="Forklift çözümlerine kaydır"><span></span></a>
-		</section>
-	</div>
 
 	<div id="Header_wrapper" class="" >
-
 
 	<header id="Header">
 	<div id="Action_bar">
@@ -385,12 +290,33 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 
 </form>
 			</div>
+
 		</div>
 	</div>
 </div>
-</header>
-<div id="Content" role="main">
+<div class="mu-hero-pin">
+	<section class="mu-hero" aria-label="Forklift kiralama">
+		<img class="mu-hero-image" src="wp-content/uploads/forklift/forklift-6.jpg" alt="Depoda palet taşıyan kiralık forklift" fetchpriority="high" />
+		<div class="mu-hero-shade" aria-hidden="true"></div>
+		<div class="mu-hero-content">
+			<p class="mu-eyebrow">Forklift Kiralama</p>
+			<h1>İşinize Uygun Forklift, Sahaya Hazır Teslim</h1>
+			<p>Elektrikli, dizel ve LPG forkliftleri kısa ya da uzun dönem kiralayın. Saha keşfi, doğru kapasite seçimi, teslimat, bakım ve operatör desteği tek süreçte yönetilsin.</p>
+			<div class="mu-hero-actions">
+				<a class="mu-primary-link" href="#iletisim">Kiralama Teklifi Al</a>
+				<a class="mu-secondary-link" href="#forklift-modelleri">Kiralık Modeller</a>
+			</div>
+		</div>
+		<a class="mu-scroll-cue" href="#forklift-cozumleri" aria-label="Forklift çözümlerine kaydır"><span></span></a>
+	</section>
+</div></header>
+	
+</div>
 
+		<!-- mfn_hook_content_before --><!-- mfn_hook_content_before -->
+	
+
+<div id="Content" role="main">
 	<div class="content_wrapper clearfix">
 
 		<main class="sections_group">
@@ -737,7 +663,98 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 </script>
 
 <script>
+(function() {
+    var media = window.matchMedia ? window.matchMedia('(max-width: 767px)') : null;
+    var overlay = document.getElementById('body_overlay');
+    var lastTouchY = null;
 
+    function isMobile() {
+        return media ? media.matches : window.innerWidth < 768;
+    }
+
+    function shouldLockMenuScroll() {
+        return isMobile() && document.body.classList.contains('side-slide-is-open');
+    }
+
+    function syncSideSlideScrollLock() {
+        document.documentElement.classList.toggle('mu-side-slide-is-open', shouldLockMenuScroll());
+    }
+
+    function stopOverlayScroll(event) {
+        if (shouldLockMenuScroll()) {
+            event.preventDefault();
+        }
+    }
+
+    function shouldForcePageScroll(event) {
+        if (!isMobile() || document.body.classList.contains('side-slide-is-open')) {
+            return false;
+        }
+
+        return !(event.target && event.target.closest && event.target.closest('#Side_slide'));
+    }
+
+    function forceWheelScroll(event) {
+        if (!shouldForcePageScroll(event) || !event.deltaY) {
+            return;
+        }
+
+        event.preventDefault();
+        window.scrollBy(0, event.deltaY);
+    }
+
+    function rememberTouchStart(event) {
+        if (!shouldForcePageScroll(event) || event.touches.length !== 1) {
+            lastTouchY = null;
+            return;
+        }
+
+        lastTouchY = event.touches[0].clientY;
+    }
+
+    function forceTouchScroll(event) {
+        if (!shouldForcePageScroll(event) || lastTouchY === null || event.touches.length !== 1) {
+            return;
+        }
+
+        var currentTouchY = event.touches[0].clientY;
+        var deltaY = lastTouchY - currentTouchY;
+
+        if (deltaY) {
+            event.preventDefault();
+            window.scrollBy(0, deltaY);
+            lastTouchY = currentTouchY;
+        }
+    }
+
+    function clearForcedTouchScroll() {
+        lastTouchY = null;
+    }
+
+    new MutationObserver(syncSideSlideScrollLock).observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+
+    if (media && media.addEventListener) {
+        media.addEventListener('change', syncSideSlideScrollLock);
+    } else {
+        window.addEventListener('resize', syncSideSlideScrollLock, { passive: true });
+    }
+
+    if (overlay) {
+        overlay.addEventListener('touchmove', stopOverlayScroll, { passive: false });
+        overlay.addEventListener('wheel', stopOverlayScroll, { passive: false });
+    }
+
+    document.addEventListener('wheel', forceWheelScroll, { passive: false, capture: true });
+    document.addEventListener('touchstart', rememberTouchStart, { passive: true, capture: true });
+    document.addEventListener('touchmove', forceTouchScroll, { passive: false, capture: true });
+    document.addEventListener('touchend', clearForcedTouchScroll, { passive: true, capture: true });
+    document.addEventListener('touchcancel', clearForcedTouchScroll, { passive: true, capture: true });
+
+    syncSideSlideScrollLock();
+})();
 </script>
 
 
