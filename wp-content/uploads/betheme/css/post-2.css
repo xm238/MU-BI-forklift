@@ -917,8 +917,7 @@ body {
     min-height: auto;
     z-index: 1;
     overflow: visible;
-    pointer-events: auto;
-    touch-action: auto;
+    pointer-events: none;
   }
 
   .mu-hero {
@@ -928,11 +927,15 @@ body {
     width: 100%;
     z-index: auto;
     pointer-events: auto;
+    overflow: visible;
   }
 
   .mu-hero {
     min-height: 60vh;
-    overflow: visible;
+  }
+  
+  .mu-hero-content {
+    pointer-events: auto;
   }
 
   .mu-hero-image {
@@ -1380,6 +1383,17 @@ button,
   background: #0a0a0a !important;
   border-color: #0a0a0a !important;
   /* keep Betheme's JS-controlled width (data-width="250") — do NOT override width/right */
+  z-index: 9999 !important;
+}
+
+/* Lock scrolling when menu is open */
+#Side_slide[aria-expanded="true"] {
+  pointer-events: auto !important;
+}
+
+body:has(#Side_slide[aria-expanded="true"]) {
+  overflow: hidden !important;
+  touch-action: none !important;
 }
 
 #Side_slide a.close {
