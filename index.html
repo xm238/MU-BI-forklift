@@ -697,46 +697,7 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 </script>
 
 <script>
-(function() {
-    var media = window.matchMedia ? window.matchMedia('(max-width: 767px)') : null;
-    var overlay = document.getElementById('body_overlay');
 
-    function isMobile() {
-        return media ? media.matches : window.innerWidth < 768;
-    }
-
-    function shouldLockMenuScroll() {
-        return isMobile() && document.body.classList.contains('side-slide-is-open');
-    }
-
-    function syncSideSlideScrollLock() {
-        document.documentElement.classList.toggle('mu-side-slide-is-open', shouldLockMenuScroll());
-    }
-
-    function stopOverlayScroll(event) {
-        if (shouldLockMenuScroll()) {
-            event.preventDefault();
-        }
-    }
-
-    new MutationObserver(syncSideSlideScrollLock).observe(document.body, {
-        attributes: true,
-        attributeFilter: ['class']
-    });
-
-    if (media && media.addEventListener) {
-        media.addEventListener('change', syncSideSlideScrollLock);
-    } else {
-        window.addEventListener('resize', syncSideSlideScrollLock, { passive: true });
-    }
-
-    if (overlay) {
-        overlay.addEventListener('touchmove', stopOverlayScroll, { passive: false });
-        overlay.addEventListener('wheel', stopOverlayScroll, { passive: false });
-    }
-
-    syncSideSlideScrollLock();
-})();
 </script>
 
 

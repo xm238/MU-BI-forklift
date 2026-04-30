@@ -1880,21 +1880,21 @@ svg path {
   }
 
   .mu-hero {
-    position: -webkit-sticky !important;
-    position: sticky !important;
-    top: 0 !important; /* No header height on mobile as Top_bar is often static or different */
+    position: relative !important;
+    top: auto !important;
     height: 100vh !important;
     height: 100svh !important;
     min-height: 500px !important;
-    display: flex !important; /* use flex for center content */
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     overflow: hidden !important;
-    z-index: 1 !important;
+    z-index: 100 !important; /* High z-index to be above theme layers */
     /* CRITICAL: Allow touch events to pass to scroller */
     touch-action: pan-y !important;
     pointer-events: auto !important;
   }
+
 
   /* Ensure image is visible */
   .mu-hero-image {
