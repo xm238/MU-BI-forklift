@@ -195,14 +195,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 		  };</script>
 
 <link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777389997' type='text/css' media='all' />
-	<script>
-	window.acceptGDPR = function() {
-		const banner = document.getElementById('mfn-gdpr');
-		if (banner) banner.style.display = 'none';
-		localStorage.setItem('mu-gdpr-accepted', 'true');
-		document.cookie = "mfn-gdpr=1; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
-	};
-	</script>
+
 </head>
 
 <body data-rsssl=1 class="home page-template-default page page-id-2 theme-betheme woocommerce-no-js woocommerce-block-theme-has-button-styles template-slider  color-custom content-brightness-light input-brightness-light style-default button-animation-slide button-animation-slide-right layout-full-width if-overlay no-content-padding header-classic header-fw sticky-header sticky-tb-color ab-show menu-line-below-80 menuo-right menuo-no-borders subheader-both-center footer-copy-center responsive-overflow-x-mobile mobile-tb-center mobile-side-slide mobile-mini-mr-lc mobile-header-mini mobile-icon-user-ss mobile-icon-wishlist-ss mobile-icon-search-ss mobile-icon-wpml-ss mobile-icon-action-ss be-page-2 be-reg-2753 mfn-all-shop-filters-disabled product-gallery-zoom mobile-row-2-products mfn-variable-swatches mfn-ajax-add-to-cart">
@@ -416,7 +409,7 @@ Forklift Kiralama Çözümleri</h1>
   </div>
   <div class="mfn-gdpr-content">Web sitemizde size en iyi deneyimi sunabilmemiz için çerezleri kullanıyoruz. Bu siteyi kullanmaya devam ederseniz, bunu kabul ettiğinizi varsayarız. <a href="#">Açık Rıza Metni ve Beyanı</a>.</div>
   <a class="mfn-gdpr-readmore" href="#" target="_blank">Gizlilik Politikası</a>
-  <button class="mu-gdpr-button" onclick="acceptGDPR()">Kabul Et</button>
+  <button class="mfn-gdpr-button" id="mu-accept-gdpr">Kabul Et</button>
 </div>
 
 		<script>
@@ -635,33 +628,52 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 <script>
   (function() {
     const banner = document.getElementById('mfn-gdpr');
+    const btn = document.getElementById('mu-accept-gdpr');
     if (!banner) return;
 
     function isAccepted() {
       return localStorage.getItem('mu-gdpr-accepted') === 'true' || document.cookie.indexOf('mfn-gdpr=1') > -1;
     }
 
-    function checkGDPR() {
-      if (isAccepted()) {
-        banner.style.display = 'none';
-        banner.classList.remove('show');
-      } else {
+    function hideBanner() {
+      banner.style.display = 'none';
+      banner.classList.remove('show');
+    }
+
+    function showBanner() {
+      if (!isAccepted()) {
         banner.style.display = 'flex';
+        banner.classList.add('show');
       }
     }
 
-    checkGDPR();
-    window.addEventListener('load', checkGDPR);
+    function acceptGDPR() {
+      localStorage.setItem('mu-gdpr-accepted', 'true');
+      document.cookie = "mfn-gdpr=1; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+      hideBanner();
+    }
+
+    if (btn) {
+      btn.addEventListener('click', acceptGDPR);
+    }
+
+    // Initial check
+    if (isAccepted()) {
+      hideBanner();
+    } else {
+      showBanner();
+    }
+
+    // Re-check on load to be sure
+    window.addEventListener('load', () => {
+      if (isAccepted()) hideBanner();
+    });
     
-    const observer = new MutationObserver((mutations) => {
+    // Observer to prevent other scripts from showing it
+    const observer = new MutationObserver(() => {
       if (isAccepted()) {
-        for (const mutation of mutations) {
-          if (mutation.type === 'attributes' && (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
-            if (banner.style.display !== 'none' || banner.classList.contains('show')) {
-              banner.style.display = 'none';
-              banner.classList.remove('show');
-            }
-          }
+        if (banner.style.display !== 'none' || banner.classList.contains('show')) {
+          hideBanner();
         }
       }
     });
