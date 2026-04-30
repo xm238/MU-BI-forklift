@@ -1856,7 +1856,6 @@ svg path {
    3. Move hero out of header (already done in HTML)
    ================================================ */
 @media only screen and (max-width: 767px) {
-  /* Kill ANY theme-level overflow locks */
   html, body {
     overflow-x: hidden !important;
     overflow-y: visible !important;
@@ -1864,53 +1863,35 @@ svg path {
     position: static !important;
   }
 
-  #Wrapper, #Content {
+  #Wrapper, #Content, .content_wrapper, .sections_group, .entry-content, .section_wrapper {
     overflow: visible !important;
     height: auto !important;
     position: relative !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
   }
 
-  /* Restore sticky parallax but make it safe */
+  /* Kill the pin container height */
   .mu-hero-pin {
-    height: 160vh !important; /* Slightly shorter for mobile */
-    min-height: 800px !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    height: auto !important;
+    min-height: unset !important;
   }
 
   .mu-hero {
     position: relative !important;
-    top: auto !important;
     height: 100vh !important;
     height: 100svh !important;
     min-height: 500px !important;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden !important;
-    z-index: 100 !important; /* High z-index to be above theme layers */
-    /* CRITICAL: Allow touch events to pass to scroller */
+    z-index: 10 !important;
     touch-action: pan-y !important;
     pointer-events: auto !important;
   }
 
-
-  /* Ensure image is visible */
-  .mu-hero-image {
-    display: block !important;
-    object-fit: cover !important;
-    z-index: -2 !important;
-  }
-
-  /* Fix for BeTheme's Side Slide menu clipping */
-  .mobile-side-slide #Wrapper {
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    transform: none !important;
+  /* Force touch priority */
+  * {
+    touch-action: auto !important;
   }
 }
-
-
