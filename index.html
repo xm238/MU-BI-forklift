@@ -582,6 +582,7 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
     let pinHeight = 0;
     let viewportHeight = 0;
     let ticking = false;
+    let lastScroll = 0;
 
     function updateMetrics() {
         pinHeight = heroPin.offsetHeight;
@@ -590,10 +591,14 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 
     function updateStyles() {
         const scroll = window.scrollY;
+        lastScroll = scroll;
+        
         if (scroll < pinHeight) {
             const progress = Math.min(1, scroll / (pinHeight - viewportHeight));
             heroContent.style.opacity = 1 - (progress * 1.5);
             heroContent.style.transform = "translateY(" + (scroll * 0.4) + "px)";
+        } else {
+            heroContent.style.opacity = Math.max(0, 1 - 1.5);
         }
         ticking = false;
     }
@@ -605,9 +610,13 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
         }
     }
 
-    window.addEventListener('resize', updateMetrics, { passive: true });
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // Use passive listeners and allow browser to handle scroll naturally
+    window.addEventListener('resize', updateMetrics, { passive: true, once: false });
+    window.addEventListener('scroll', onScroll, { passive: true, once: false });
+    
+    // Initial update
     updateMetrics();
+    updateStyles();
 })();
 </script>
 

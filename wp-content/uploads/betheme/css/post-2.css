@@ -913,23 +913,21 @@ body {
   }
 
   .mu-hero-pin {
-    height: 200vh;
-    height: 200svh;
-    min-height: 1000px;
+    height: auto;
+    min-height: auto;
     z-index: 1;
   }
 
   .mu-hero {
-    position: fixed;
-    top: var(--mu-header-height);
-    left: 0;
+    position: relative;
+    top: auto;
+    left: auto;
     width: 100%;
-    z-index: 0;
+    z-index: auto;
   }
 
   .mu-hero {
-    min-height: calc(100vh - var(--mu-header-height));
-    min-height: calc(100svh - var(--mu-header-height));
+    min-height: 60vh;
   }
 
   .mu-hero-image {
