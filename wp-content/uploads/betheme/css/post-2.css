@@ -14,7 +14,10 @@
 }
 
 body,
-input, textarea, select, button {
+input,
+textarea,
+select,
+button {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
 }
 
@@ -150,7 +153,7 @@ body {
   padding: 0 !important;
 }
 
-#Action_bar .menu-item-gtranslate > a.gt-current-wrapper {
+#Action_bar .menu-item-gtranslate>a.gt-current-wrapper {
   display: inline-flex !important;
   align-items: center;
   gap: 8px;
@@ -165,7 +168,7 @@ body {
   line-height: 1;
 }
 
-#Action_bar .menu-item-gtranslate > a.gt-current-wrapper::after {
+#Action_bar .menu-item-gtranslate>a.gt-current-wrapper::after {
   content: "";
   width: 6px;
   height: 6px;
@@ -285,8 +288,10 @@ body {
   width: auto !important;
   margin: 0 !important;
   min-width: 0;
-  flex: 1 1 0; /* shrink so CTA button always has room */
-  overflow: hidden; /* prevent menu from bleeding into CTA */
+  flex: 1 1 0;
+  /* shrink so CTA button always has room */
+  overflow: hidden;
+  /* prevent menu from bleeding into CTA */
 }
 
 #Top_bar #menu {
@@ -304,18 +309,18 @@ body {
   padding: 0 !important;
 }
 
-#Top_bar .menu > li {
+#Top_bar .menu>li {
   float: none !important;
   margin: 0 !important;
 }
 
-#Top_bar .menu > li > a {
+#Top_bar .menu>li>a {
   height: auto !important;
   padding: 0 !important;
   color: var(--mu-ink) !important;
 }
 
-#Top_bar .menu > li > a span:not(.description) {
+#Top_bar .menu>li>a span:not(.description) {
   line-height: 40px !important;
   padding: 0 10px !important;
   border: 0 !important;
@@ -325,8 +330,8 @@ body {
   white-space: nowrap;
 }
 
-#Top_bar .menu > li > a:hover span,
-#Top_bar .menu > li.current-menu-item > a span {
+#Top_bar .menu>li>a:hover span,
+#Top_bar .menu>li.current-menu-item>a span {
   color: var(--mu-black) !important;
 }
 
@@ -352,7 +357,8 @@ body {
   float: none !important;
   width: auto !important;
   height: auto !important;
-  flex: 0 0 auto; /* never shrink — CTA always stays right */
+  flex: 0 0 auto;
+  /* never shrink — CTA always stays right */
   min-width: max-content;
   padding: 0 !important;
   margin: 0 !important;
@@ -446,7 +452,7 @@ body {
 }
 
 /* Width cap on all direct text children */
-.mu-hero-content > * {
+.mu-hero-content>* {
   max-width: 700px;
 }
 
@@ -469,7 +475,7 @@ body {
   letter-spacing: 0;
 }
 
-.mu-hero-content > p:not(.mu-eyebrow) {
+.mu-hero-content>p:not(.mu-eyebrow) {
   max-width: 650px;
   margin: 20px 0 0;
   color: rgba(255, 255, 255, 0.9);
@@ -549,19 +555,25 @@ body {
 }
 
 @keyframes mu-cue-float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(8px);
   }
 }
 
 @keyframes mu-cue-arrow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.55;
     transform: translateY(0) rotate(45deg);
   }
+
   50% {
     opacity: 1;
     transform: translateY(12px) rotate(45deg);
@@ -813,7 +825,7 @@ body {
     --mu-header-height: 108px;
   }
 
-  #Top_bar .menu > li > a span:not(.description) {
+  #Top_bar .menu>li>a span:not(.description) {
     padding: 0 7px !important;
     font-size: 12px;
   }
@@ -905,16 +917,14 @@ body {
     height: 200svh;
     min-height: 1000px;
     z-index: 1;
-    touch-action: pan-y;
   }
 
   .mu-hero {
-    position: sticky !important;
-    top: var(--mu-header-height) !important;
+    position: fixed;
+    top: var(--mu-header-height);
     left: 0;
     width: 100%;
     z-index: 0;
-    touch-action: pan-y;
   }
 
   .mu-hero {
@@ -948,7 +958,7 @@ body {
     line-height: 1.1;
   }
 
-  .mu-hero-content > p:not(.mu-eyebrow) {
+  .mu-hero-content>p:not(.mu-eyebrow) {
     margin-top: 16px;
     font-size: 16px;
     line-height: 1.5;
@@ -1009,7 +1019,7 @@ body {
     width: 100%;
   }
 
-  #Side_slide .menu-item-gtranslate > a.gt-current-wrapper {
+  #Side_slide .menu-item-gtranslate>a.gt-current-wrapper {
     display: flex !important;
     align-items: center;
     gap: 10px;
@@ -1038,6 +1048,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .mu-scroll-cue,
   .mu-scroll-cue span,
   #forklift-cozumleri .column_attr::before {
@@ -1089,8 +1100,8 @@ body.mu-scrolled #Top_bar.is-sticky {
 
 body:not(.mu-scrolled) #Action_bar .contact_details li,
 body:not(.mu-scrolled) #Action_bar .contact_details a,
-body:not(.mu-scrolled) #Top_bar .menu > li > a span:not(.description),
-body:not(.mu-scrolled) #Top_bar .menu > li.current-menu-item > a span,
+body:not(.mu-scrolled) #Top_bar .menu>li>a span:not(.description),
+body:not(.mu-scrolled) #Top_bar .menu>li.current-menu-item>a span,
 body:not(.mu-scrolled) #Top_bar a.responsive-menu-toggle {
   color: #ffffff !important;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
@@ -1105,8 +1116,8 @@ body:not(.mu-scrolled) #Top_bar .action_button {
   border-color: transparent !important;
 }
 
-body.mu-scrolled #Top_bar .menu > li > a span:not(.description),
-body.mu-scrolled #Top_bar .menu > li.current-menu-item > a span,
+body.mu-scrolled #Top_bar .menu>li>a span:not(.description),
+body.mu-scrolled #Top_bar .menu>li.current-menu-item>a span,
 body.mu-scrolled #Top_bar a.responsive-menu-toggle {
   color: var(--mu-ink) !important;
   text-shadow: none;
@@ -1146,7 +1157,8 @@ body.mu-scrolled #Top_bar #logo img {
   height: 100svh;
   min-height: 760px;
   background: #05070a;
-  align-items: stretch; /* let content fill full height for flex-end positioning */
+  align-items: stretch;
+  /* let content fill full height for flex-end positioning */
 }
 
 .mu-hero-image {
@@ -1208,10 +1220,13 @@ body.mu-scrolled #Top_bar #logo img {
 }
 
 @keyframes mu-cue-arrow-refined {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.7;
     transform: translateY(0) rotate(45deg);
   }
+
   50% {
     opacity: 1;
     transform: translateY(5px) rotate(45deg);
@@ -1242,7 +1257,7 @@ button,
 .action_button,
 .mu-primary-link,
 .mu-secondary-link,
-#Action_bar .menu-item-gtranslate > a.gt-current-wrapper,
+#Action_bar .menu-item-gtranslate>a.gt-current-wrapper,
 #Action_bar .menu-item-gtranslate .dropdown-menu,
 #Action_bar .menu-item-gtranslate .dropdown-menu a,
 #Top_bar .menu li ul,
@@ -1264,6 +1279,7 @@ button,
 }
 
 @media only screen and (max-width: 959px) {
+
   #Top_bar,
   #Top_bar.is-sticky {
     top: 0 !important;
@@ -1271,6 +1287,7 @@ button,
 }
 
 @media only screen and (max-width: 767px) {
+
   #Top_bar,
   #Top_bar.is-sticky {
     min-height: 82px;
@@ -1291,7 +1308,8 @@ button,
 
   .mu-hero {
     height: 100svh;
-    min-height: 0; /* let viewport dictate — no forced min */
+    min-height: 0;
+    /* let viewport dictate — no forced min */
   }
 
   .mu-hero-image {
@@ -1315,7 +1333,7 @@ button,
     line-height: 1.08;
   }
 
-  .mu-hero-content > p:not(.mu-eyebrow) {
+  .mu-hero-content>p:not(.mu-eyebrow) {
     font-size: 21px;
     line-height: 1.5;
   }
@@ -1341,7 +1359,7 @@ button,
     font-size: 40px;
   }
 
-  .mu-hero-content > p:not(.mu-eyebrow) {
+  .mu-hero-content>p:not(.mu-eyebrow) {
     font-size: 18px;
   }
 
@@ -1410,9 +1428,9 @@ button,
 }
 
 #Side_slide #menu ul li a:hover,
-#Side_slide #menu ul li:hover > a,
-#Side_slide #menu ul li.current-menu-item > a,
-#Side_slide #menu ul li.current_page_item > a {
+#Side_slide #menu ul li:hover>a,
+#Side_slide #menu ul li.current-menu-item>a,
+#Side_slide #menu ul li.current_page_item>a {
   color: #ffffff !important;
   background: rgba(255, 255, 255, 0.06) !important;
 }
@@ -1429,7 +1447,7 @@ button,
 }
 
 /* Language switcher in slide */
-#Side_slide .menu-item-gtranslate > a.gt-current-wrapper {
+#Side_slide .menu-item-gtranslate>a.gt-current-wrapper {
   display: flex !important;
   align-items: center;
   gap: 10px;
@@ -1503,6 +1521,7 @@ body.mu-scrolled #Top_bar a.responsive-menu-toggle {
 }
 
 @media only screen and (max-width: 767px) {
+
   body.mu-scrolled #Top_bar,
   body.mu-scrolled #Top_bar.is-sticky {
     background: rgba(255, 255, 255, 0.94) !important;
@@ -1512,12 +1531,12 @@ body.mu-scrolled #Top_bar a.responsive-menu-toggle {
 }
 
 /* --- Header Hover Underline Logic --- */
-#Top_bar .menu > li > a span:not(.description) {
+#Top_bar .menu>li>a span:not(.description) {
   position: relative;
   padding-bottom: 2px !important;
 }
 
-#Top_bar .menu > li > a span:not(.description)::after {
+#Top_bar .menu>li>a span:not(.description)::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -1529,18 +1548,18 @@ body.mu-scrolled #Top_bar a.responsive-menu-toggle {
   transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#Top_bar .menu > li:hover > a span:not(.description)::after,
-#Top_bar .menu > li.current-menu-item > a span:not(.description)::after {
+#Top_bar .menu>li:hover>a span:not(.description)::after,
+#Top_bar .menu>li.current-menu-item>a span:not(.description)::after {
   transform: scaleX(1);
 }
 
 /* White underline on dark hero section */
-body:not(.mu-scrolled) #Top_bar .menu > li > a span:not(.description)::after {
+body:not(.mu-scrolled) #Top_bar .menu>li>a span:not(.description)::after {
   background: #ffffff !important;
 }
 
 /* Dark underline on white scrolled header */
-body.mu-scrolled #Top_bar .menu > li > a span:not(.description)::after {
+body.mu-scrolled #Top_bar .menu>li>a span:not(.description)::after {
   background: var(--mu-black) !important;
 }
 
@@ -1562,9 +1581,9 @@ body.mu-scrolled #Top_bar .menu > li > a span:not(.description)::after {
 .woocommerce .product div.entry-summary .price,
 .woocommerce .product .woocommerce-variation-price .price,
 .woocommerce .star-rating span,
-#Top_bar .menu > li.current-menu-item > a,
-#Top_bar .menu > li.current_page_item > a,
-#Top_bar .menu > li.hover > a,
+#Top_bar .menu>li.current-menu-item>a,
+#Top_bar .menu>li.current_page_item>a,
+#Top_bar .menu>li.hover>a,
 a {
   color: var(--mu-black) !important;
 }
@@ -1579,7 +1598,7 @@ a {
 .slider_pagination a.selected,
 .slider_pagination .slick-active a,
 .widget_mfn_menu ul li a:hover,
-.widget_mfn_menu ul li.current-menu-item:not(.current-menu-ancestor) > a,
+.widget_mfn_menu ul li.current-menu-item:not(.current-menu-ancestor)>a,
 .how_it_works .image_wrapper .number,
 .mfn-wish-button.loved:not(.link) .path {
   background-color: var(--mu-black) !important;
@@ -1617,7 +1636,7 @@ a {
   opacity: 0.9;
 }
 
-#Footer .widget_text, 
+#Footer .widget_text,
 #Footer .widget_mfn_menu {
   color: rgba(255, 255, 255, 0.5) !important;
   font-size: 14px;
@@ -1664,7 +1683,7 @@ a.content_link,
 }
 
 /* Ensure no red leakage in SVG icons */
-svg .path, 
+svg .path,
 svg path {
   stroke: currentColor;
 }
@@ -1766,10 +1785,13 @@ svg path {
 #iletisim {
   border-top: 1px solid #eee;
 }
+
 .mu-contact-form .mu-input-group {
   margin-bottom: 20px;
 }
-.mu-contact-form input, .mu-contact-form textarea {
+
+.mu-contact-form input,
+.mu-contact-form textarea {
   width: 100%;
   padding: 15px;
   border: 1px solid #eee;
@@ -1779,6 +1801,7 @@ svg path {
   color: #000;
   border-radius: 0 !important;
 }
+
 .mu-btn-black {
   background: #000 !important;
   color: #fff !important;
@@ -1790,10 +1813,12 @@ svg path {
   border-radius: 0 !important;
   transition: opacity 0.3s;
 }
+
 .mu-btn-black:hover {
   opacity: 0.8;
 }
 
 #mfn-gdpr {
-  display: none; /* Hidden by default, script will show if needed */
+  display: none;
+  /* Hidden by default, script will show if needed */
 }
