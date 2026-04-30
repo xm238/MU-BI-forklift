@@ -106,7 +106,46 @@ form input.display-none{display:none!important}
 .woocommerce ul.products li.product .desc { background: none; padding: 15px 0; }
 .woocommerce ul.products li.product .desc h4 { margin-bottom: 5px; }
 
-
+/* MOBILE SCROLL FIX - MAINTAIN SCROLL WHILE KEEPING ANIMATIONS */
+@media only screen and (max-width: 767px) {
+  html,
+  body {
+    overflow-x: visible !important;
+    overflow-y: auto !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  body.responsive-overflow-x-mobile {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+  
+  #Wrapper,
+  #Content,
+  .sections_group,
+  .mu-hero-pin,
+  .mu-hero {
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  .mu-hero-pin {
+    position: relative !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+  
+  .mu-hero-image,
+  .mu-hero-content {
+    pointer-events: none !important;
+  }
+  
+  .mu-hero-content a,
+  .mu-hero-content button {
+    pointer-events: auto !important;
+  }
+}
 </style>
 <script type="text/javascript" src="wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script type="text/javascript" src="wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
