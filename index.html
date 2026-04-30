@@ -107,10 +107,10 @@ form input.display-none{display:none!important}
 .woocommerce ul.products li.product .desc { background: none; padding: 15px 0; }
 .woocommerce ul.products li.product .desc h4 { margin-bottom: 5px; }
 
-/* MOBILE SCROLL FIX */
+/* MOBILE SCROLL FIX (Removed overflow-x:hidden from body to restore vertical scroll) */
 @media only screen and (max-width: 767px) {
   body.responsive-overflow-x-mobile {
-    overflow-x: hidden !important;
+    /* overflow-x: hidden !important; */
   }
 }
 

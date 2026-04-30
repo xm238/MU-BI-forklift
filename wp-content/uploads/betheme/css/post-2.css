@@ -423,6 +423,7 @@ body {
   overflow: hidden;
   isolation: isolate;
   background: #05070a;
+  touch-action: pan-y;
 }
 
 .mu-hero-image,
