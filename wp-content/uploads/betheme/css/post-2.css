@@ -19,14 +19,25 @@ input, textarea, select, button {
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-padding-top: var(--mu-header-height);
+  height: auto !important;
 }
 
-body,
+@media (max-width: 767px) {
+  html {
+    overscroll-behavior-y: none;
+  }
+}
+
+body {
+  width: 100% !important;
+  max-width: none !important;
+  background: var(--mu-wash) !important;
+}
+
 #Wrapper {
   width: 100% !important;
   max-width: none !important;
-  overflow-x: clip;
   background: var(--mu-wash) !important;
 }
 
@@ -855,9 +866,6 @@ body,
     --mu-header-height: 66px;
   }
 
-  #Wrapper {
-    max-width: none !important;
-  }
 
   #Action_bar {
     display: none !important;
@@ -897,7 +905,18 @@ body,
   }
 
   .mu-hero-pin {
-    min-height: 980px;
+    height: 200vh;
+    height: 200svh;
+    min-height: 1000px;
+    z-index: 1;
+  }
+
+  .mu-hero {
+    position: sticky;
+    top: var(--mu-header-height);
+    left: 0;
+    width: 100%;
+    z-index: 0;
   }
 
   .mu-hero {
@@ -1160,9 +1179,11 @@ body.mu-scrolled #Top_bar #logo img {
 }
 
 #Content {
-  z-index: 20;
+  position: relative;
+  z-index: 30;
   margin-top: -100vh;
   margin-top: -100svh;
+  background: var(--mu-paper) !important;
 }
 
 .mu-scroll-cue {
@@ -1490,4 +1511,289 @@ body.mu-scrolled #Top_bar a.responsive-menu-toggle {
     border-bottom-color: rgba(17, 24, 39, 0.1) !important;
     box-shadow: 0 8px 22px rgba(17, 24, 39, 0.1) !important;
   }
+}
+
+/* --- Header Hover Underline Logic --- */
+#Top_bar .menu > li > a span:not(.description) {
+  position: relative;
+  padding-bottom: 2px !important;
+}
+
+#Top_bar .menu > li > a span:not(.description)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#Top_bar .menu > li:hover > a span:not(.description)::after,
+#Top_bar .menu > li.current-menu-item > a span:not(.description)::after {
+  transform: scaleX(1);
+}
+
+/* White underline on dark hero section */
+body:not(.mu-scrolled) #Top_bar .menu > li > a span:not(.description)::after {
+  background: #ffffff !important;
+}
+
+/* Dark underline on white scrolled header */
+body.mu-scrolled #Top_bar .menu > li > a span:not(.description)::after {
+  background: var(--mu-black) !important;
+}
+
+/* --- Global Black & White Overhaul --- */
+/* Targetting all common BeTheme accent elements */
+.themecolor,
+.opening_hours .opening_hours_wrapper li span,
+.fancy_heading_icon .icon_top,
+.fancy_heading_arrows .icon-right-dir,
+.fancy_heading_arrows .icon-left-dir,
+.fancy_heading_line .title,
+.button-love a.mfn-love,
+.woocommerce ul.products li.product .price,
+.shop_slider .shop_slider_ul li .item_wrapper .price,
+.woocommerce-page ul.products li.product .price,
+.widget_price_filter .price_label .from,
+.widget_price_filter .price_label .to,
+.woocommerce ul.product_list_widget li .quantity .amount,
+.woocommerce .product div.entry-summary .price,
+.woocommerce .product .woocommerce-variation-price .price,
+.woocommerce .star-rating span,
+#Top_bar .menu > li.current-menu-item > a,
+#Top_bar .menu > li.current_page_item > a,
+#Top_bar .menu > li.hover > a,
+a {
+  color: var(--mu-black) !important;
+}
+
+.themebg,
+#Filters .filters_wrapper ul li a:hover,
+#Filters .filters_wrapper ul li.current-cat a,
+.fixed-nav .arrow,
+.pager .pages a:hover,
+.pager .pages a.active,
+.pager .pages span.page-numbers.current,
+.slider_pagination a.selected,
+.slider_pagination .slick-active a,
+.widget_mfn_menu ul li a:hover,
+.widget_mfn_menu ul li.current-menu-item:not(.current-menu-ancestor) > a,
+.how_it_works .image_wrapper .number,
+.mfn-wish-button.loved:not(.link) .path {
+  background-color: var(--mu-black) !important;
+}
+
+.Latest_news ul li .photo,
+.Recent_posts.blog_news ul li .photo,
+.style-simple .opening_hours .opening_hours_wrapper li label,
+.style-simple .timeline_items li:hover h3,
+.style-simple .offer_thumb .slider_pagination a.selected {
+  border-color: var(--mu-black) !important;
+}
+
+#Footer,
+.mfn-footer,
+#Footer .widgets_wrapper {
+  background-color: #000000 !important;
+}
+
+#Footer {
+  padding-top: 80px;
+}
+
+#Footer .widgets_wrapper {
+  padding: 60px 0 40px;
+}
+
+#Footer .widget h4 {
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+#Footer .widget_text, 
+#Footer .widget_mfn_menu {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 14px;
+  line-height: 2;
+}
+
+#Footer .widget_text a,
+#Footer .widget_mfn_menu a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transition: opacity 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2px;
+}
+
+#Footer .widget_text a:hover,
+#Footer .widget_mfn_menu a:hover {
+  opacity: 0.7;
+  border-bottom-color: #ffffff;
+}
+
+#Content {
+  padding-bottom: 0 !important;
+}
+
+#Footer .footer_copy {
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.counter .icon_wrapper i,
+.quick_fact .number-wrapper .number,
+.progress_bars .bars_list li .bar .progress,
+a:hover.icon_bar,
+a.content_link,
+.mcb-item-contact_box-inner,
+.mcb-item-info_box-inner {
+  color: var(--mu-black) !important;
+}
+
+.mcb-item-contact_box-inner,
+.mcb-item-info_box-inner {
+  background-color: var(--mu-black) !important;
+  color: #ffffff !important;
+}
+
+/* Ensure no red leakage in SVG icons */
+svg .path, 
+svg path {
+  stroke: currentColor;
+}
+
+.mfn-wish-button.loved .path {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+#mfn-gdpr {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12) !important;
+  padding: 40px 30px !important;
+  max-width: 420px !important;
+  left: 20px !important;
+  bottom: 20px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+#mfn-gdpr .mfn-gdpr-image {
+  margin-bottom: 24px !important;
+  color: var(--mu-black) !important;
+  opacity: 0.8 !important;
+}
+
+#mfn-gdpr .mu-cookie-svg {
+  width: 54px;
+  height: 54px;
+}
+
+#mfn-gdpr .mfn-gdpr-content {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: #4b5563 !important;
+  margin-bottom: 28px !important;
+  padding: 0 !important;
+}
+
+#mfn-gdpr .mfn-gdpr-content a {
+  color: var(--mu-black) !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+}
+
+#mfn-gdpr .mfn-gdpr-readmore {
+  display: block !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #6b7280 !important;
+  text-decoration: none !important;
+  margin-bottom: 20px !important;
+  transition: color 0.2s ease !important;
+}
+
+#mfn-gdpr .mfn-gdpr-readmore:hover {
+  color: var(--mu-black) !important;
+}
+
+#mfn-gdpr .mfn-gdpr-button {
+  background: var(--mu-black) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 16px 32px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  cursor: pointer !important;
+  transition: background 0.3s ease !important;
+  width: 100% !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+#mfn-gdpr .mfn-gdpr-button:hover {
+  background: #000000 !important;
+}
+
+@media only screen and (max-width: 767px) {
+  #mfn-gdpr {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    max-width: none !important;
+    padding: 30px 20px !important;
+  }
+}
+
+/* Contact Section */
+#iletisim {
+  border-top: 1px solid #eee;
+}
+.mu-contact-form .mu-input-group {
+  margin-bottom: 20px;
+}
+.mu-contact-form input, .mu-contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #eee;
+  background: #fdfdfd;
+  font-family: inherit;
+  font-size: 14px;
+  color: #000;
+  border-radius: 0 !important;
+}
+.mu-btn-black {
+  background: #000 !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 15px 40px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  letter-spacing: 1px !important;
+  border-radius: 0 !important;
+  transition: opacity 0.3s;
+}
+.mu-btn-black:hover {
+  opacity: 0.8;
+}
+
+#mfn-gdpr {
+  display: none; /* Hidden by default, script will show if needed */
 }
