@@ -21,18 +21,14 @@ input, textarea, select, button {
 html {
   scroll-padding-top: var(--mu-header-height);
   height: auto !important;
-}
-
-@media (max-width: 767px) {
-  html {
-    overscroll-behavior-y: none;
-  }
+  overscroll-behavior: none;
 }
 
 body {
   width: 100% !important;
   max-width: none !important;
   background: var(--mu-wash) !important;
+  overscroll-behavior: none;
 }
 
 #Wrapper {
