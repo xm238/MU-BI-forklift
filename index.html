@@ -255,9 +255,35 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 			//});
 		  };</script>
 
-<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777390003' type='text/css' media='all' />
-
+	<style>
+		/* Nuclear touch unlock */
+		#body_overlay { pointer-events: none !important; display: none !important; }
+		.mu-hero { pointer-events: auto !important; touch-action: pan-y !important; }
+		html, body { overflow-y: auto !important; height: auto !important; -webkit-overflow-scrolling: touch !important; }
+	</style>
+	<script>
+		// Force unlock scroll every 500ms for 5 seconds
+		(function() {
+			const unlock = () => {
+				document.documentElement.style.overflow = 'visible';
+				document.documentElement.style.height = 'auto';
+				document.body.style.overflow = 'visible';
+				document.body.style.height = 'auto';
+				document.body.style.position = 'static';
+			};
+			for(let i=0; i<10; i++) setTimeout(unlock, i * 500);
+			
+			// Debug: what am I touching?
+			window.addEventListener('touchstart', (e) => {
+				console.log('Touch started on:', e.target);
+				// If we touch something that isn't the content and it's blocking, we'll know
+			}, { passive: true });
+		})();
+	</script>
+	<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777390003' type='text/css' media='all' />
 </head>
+
+
 
 <body data-rsssl=1 class="home page-template-default page page-id-2 theme-betheme woocommerce-no-js woocommerce-block-theme-has-button-styles template-slider  color-custom content-brightness-light input-brightness-light style-default button-animation-slide button-animation-slide-right layout-full-width if-overlay no-content-padding header-classic header-fw sticky-header sticky-tb-color ab-show menu-line-below-80 menuo-right menuo-no-borders subheader-both-center footer-copy-center responsive-overflow-x-mobile mobile-tb-center mobile-side-slide mobile-mini-mr-lc mobile-header-mini mobile-icon-user-ss mobile-icon-wishlist-ss mobile-icon-search-ss mobile-icon-wpml-ss mobile-icon-action-ss be-page-2 be-reg-2753 mfn-all-shop-filters-disabled product-gallery-zoom mobile-row-2-products mfn-variable-swatches mfn-ajax-add-to-cart">
 
