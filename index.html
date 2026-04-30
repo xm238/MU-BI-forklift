@@ -577,6 +577,7 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 (function() {
     const heroContent = document.querySelector('.mu-hero-content');
     const heroPin = document.querySelector('.mu-hero-pin');
+    const sideSlide = document.getElementById('Side_slide');
     if (!heroContent || !heroPin) return;
 
     let pinHeight = 0;
@@ -615,6 +616,22 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
     // Use passive listeners - they don't block scrolling
     window.addEventListener('resize', updateMetrics, { passive: true });
     window.addEventListener('scroll', onScroll, { passive: true });
+    
+    // Monitor menu open/close and lock body scroll
+    if (sideSlide) {
+        const observer = new MutationObserver(() => {
+            const isOpen = sideSlide.getAttribute('aria-expanded') === 'true';
+            if (isOpen) {
+                document.body.style.overflow = 'hidden';
+                document.body.style.touchAction = 'none';
+            } else {
+                document.body.style.overflow = '';
+                document.body.style.touchAction = '';
+            }
+        });
+        
+        observer.observe(sideSlide, { attributes: true, attributeFilter: ['aria-expanded'] });
+    }
     
     // Initial update
     updateMetrics();
