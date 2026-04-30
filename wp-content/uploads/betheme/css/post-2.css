@@ -1883,19 +1883,21 @@ svg path {
   }
 
   .mu-hero {
-    position: -webkit-sticky !important;
-    position: sticky !important;
-    top: 0 !important;
+    position: relative !important;
     height: 100vh !important;
     height: 100svh !important;
     min-height: 500px !important;
-    z-index: 5 !important;
+    z-index: 1 !important;
     touch-action: pan-y !important;
     pointer-events: auto !important;
-    overflow: hidden !important;
+    overflow: visible !important; /* Allow touch to bubble */
     display: flex !important;
     flex-direction: column;
     justify-content: center;
+  }
+
+  .mu-hero-image, .mu-hero-shade {
+    pointer-events: none !important; /* Pass touches through to container */
   }
 
   .mu-hero-image {
@@ -1903,6 +1905,11 @@ svg path {
     object-fit: cover !important;
     width: 100% !important;
     height: 100% !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    z-index: -1;
   }
 }
+
 
