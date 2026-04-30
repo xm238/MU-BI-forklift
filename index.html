@@ -411,7 +411,7 @@ Forklift Kiralama Çözümleri</h1>
   </div>
   <div class="mfn-gdpr-content">Web sitemizde size en iyi deneyimi sunabilmemiz için çerezleri kullanıyoruz. Bu siteyi kullanmaya devam ederseniz, bunu kabul ettiğinizi varsayarız. <a href="#">Açık Rıza Metni ve Beyanı</a>.</div>
   <a class="mfn-gdpr-readmore" href="#" target="_blank">Gizlilik Politikası</a>
-  <button class="mfn-gdpr-button" onclick="const banner = this.closest('#mfn-gdpr'); banner.style.display='none'; banner.classList.remove('show'); localStorage.setItem('mu-gdpr-accepted', 'true'); document.cookie = 'mfn-gdpr=1; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/';">Kabul Et</button>
+  <button class="mfn-gdpr-button" onclick="acceptGDPR()">Kabul Et</button>
 </div>
 
 		<script>
@@ -636,12 +636,22 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
       return localStorage.getItem('mu-gdpr-accepted') === 'true' || document.cookie.indexOf('mfn-gdpr=1') > -1;
     }
 
+    window.acceptGDPR = function() {
+      const banner = document.getElementById('mfn-gdpr');
+      if (banner) {
+        banner.style.display = 'none';
+        banner.classList.remove('show');
+      }
+      localStorage.setItem('mu-gdpr-accepted', 'true');
+      document.cookie = "mfn-gdpr=1; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+    };
+
     function checkGDPR() {
       if (isAccepted()) {
         banner.style.display = 'none';
         banner.classList.remove('show');
       } else {
-        banner.style.display = 'block';
+        banner.style.display = 'flex';
       }
     }
 

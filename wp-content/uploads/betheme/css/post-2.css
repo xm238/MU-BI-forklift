@@ -21,7 +21,6 @@ input, textarea, select, button {
 html {
   scroll-padding-top: var(--mu-header-height);
   height: auto !important;
-  overscroll-behavior: none;
 }
 
 body {
@@ -404,11 +403,13 @@ body {
   height: 200svh;
   min-height: 1120px;
   background: #05070a;
+  pointer-events: none;
 }
 
 .mu-hero {
   position: sticky;
   top: var(--mu-header-height);
+  pointer-events: none;
   height: calc(100vh - var(--mu-header-height));
   height: calc(100svh - var(--mu-header-height));
   min-height: 580px;
@@ -441,6 +442,7 @@ body {
 }
 
 .mu-hero-content {
+  pointer-events: auto;
   color: #ffffff;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.48);
 }
@@ -1750,10 +1752,12 @@ svg path {
 
 @media only screen and (max-width: 767px) {
   #mfn-gdpr {
-    left: 10px !important;
-    right: 10px !important;
-    bottom: 10px !important;
-    max-width: none !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    bottom: 20px !important;
+    width: calc(100% - 40px) !important;
+    max-width: 400px !important;
     padding: 30px 20px !important;
   }
 }
