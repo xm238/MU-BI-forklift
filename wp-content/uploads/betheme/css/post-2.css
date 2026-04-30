@@ -905,14 +905,16 @@ body {
     height: 200svh;
     min-height: 1000px;
     z-index: 1;
+    touch-action: pan-y;
   }
 
   .mu-hero {
-    position: fixed;
-    top: var(--mu-header-height);
+    position: sticky !important;
+    top: var(--mu-header-height) !important;
     left: 0;
     width: 100%;
     z-index: 0;
+    touch-action: pan-y;
   }
 
   .mu-hero {
