@@ -920,8 +920,8 @@ body {
   }
 
   .mu-hero {
-    position: fixed;
-    top: var(--mu-header-height);
+    position: sticky;
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 0;
@@ -930,11 +930,6 @@ body {
   .mu-hero {
     min-height: calc(100vh - var(--mu-header-height));
     min-height: calc(100svh - var(--mu-header-height));
-    pointer-events: none;
-  }
-
-  .mu-hero-actions a,
-  .mu-scroll-cue {
     pointer-events: auto;
   }
 
@@ -1313,8 +1308,12 @@ button,
   }
 
   .mu-hero {
+    position: sticky;
+    top: 0;
+    height: 100vh;
     height: 100svh;
     min-height: 0;
+    pointer-events: auto;
     /* let viewport dictate — no forced min */
   }
 

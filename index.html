@@ -199,7 +199,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 			//});
 		  };</script>
 
-<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777390001' type='text/css' media='all' />
+<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777390003' type='text/css' media='all' />
 
 </head>
 
@@ -623,6 +623,7 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 (function() {
     var media = window.matchMedia ? window.matchMedia('(max-width: 767px)') : null;
     var overlay = document.getElementById('body_overlay');
+    var lastTouchY = null;
 
     function isMobile() {
         return media ? media.matches : window.innerWidth < 768;
@@ -642,6 +643,51 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
         }
     }
 
+    function shouldForcePageScroll(event) {
+        if (!isMobile() || document.body.classList.contains('side-slide-is-open')) {
+            return false;
+        }
+
+        return !(event.target && event.target.closest && event.target.closest('#Side_slide'));
+    }
+
+    function forceWheelScroll(event) {
+        if (!shouldForcePageScroll(event) || !event.deltaY) {
+            return;
+        }
+
+        event.preventDefault();
+        window.scrollBy(0, event.deltaY);
+    }
+
+    function rememberTouchStart(event) {
+        if (!shouldForcePageScroll(event) || event.touches.length !== 1) {
+            lastTouchY = null;
+            return;
+        }
+
+        lastTouchY = event.touches[0].clientY;
+    }
+
+    function forceTouchScroll(event) {
+        if (!shouldForcePageScroll(event) || lastTouchY === null || event.touches.length !== 1) {
+            return;
+        }
+
+        var currentTouchY = event.touches[0].clientY;
+        var deltaY = lastTouchY - currentTouchY;
+
+        if (deltaY) {
+            event.preventDefault();
+            window.scrollBy(0, deltaY);
+            lastTouchY = currentTouchY;
+        }
+    }
+
+    function clearForcedTouchScroll() {
+        lastTouchY = null;
+    }
+
     new MutationObserver(syncSideSlideScrollLock).observe(document.body, {
         attributes: true,
         attributeFilter: ['class']
@@ -657,6 +703,12 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
         overlay.addEventListener('touchmove', stopOverlayScroll, { passive: false });
         overlay.addEventListener('wheel', stopOverlayScroll, { passive: false });
     }
+
+    document.addEventListener('wheel', forceWheelScroll, { passive: false, capture: true });
+    document.addEventListener('touchstart', rememberTouchStart, { passive: true, capture: true });
+    document.addEventListener('touchmove', forceTouchScroll, { passive: false, capture: true });
+    document.addEventListener('touchend', clearForcedTouchScroll, { passive: true, capture: true });
+    document.addEventListener('touchcancel', clearForcedTouchScroll, { passive: true, capture: true });
 
     syncSideSlideScrollLock();
 })();
