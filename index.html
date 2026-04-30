@@ -409,7 +409,7 @@ Forklift Kiralama Çözümleri</h1>
   </div>
   <div class="mfn-gdpr-content">Web sitemizde size en iyi deneyimi sunabilmemiz için çerezleri kullanıyoruz. Bu siteyi kullanmaya devam ederseniz, bunu kabul ettiğinizi varsayarız. <a href="#">Açık Rıza Metni ve Beyanı</a>.</div>
   <a class="mfn-gdpr-readmore" href="#" target="_blank">Gizlilik Politikası</a>
-  <button class="mfn-gdpr-button" id="mu-accept-gdpr">Kabul Et</button>
+  <button type="button" class="mfn-gdpr-button" id="mu-accept-gdpr">Kabul Et</button>
 </div>
 
 		<script>
@@ -635,22 +635,29 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
       return localStorage.getItem('mu-gdpr-accepted') === 'true' || document.cookie.indexOf('mfn-gdpr=1') > -1;
     }
 
-    function hideBanner() {
-      banner.style.display = 'none';
-      banner.classList.remove('show');
+    function removeBanner() {
+      if (banner && banner.parentNode) {
+        banner.remove();
+      }
     }
 
     function showBanner() {
       if (!isAccepted()) {
         banner.style.display = 'flex';
         banner.classList.add('show');
+      } else {
+        removeBanner();
       }
     }
 
-    function acceptGDPR() {
+    function acceptGDPR(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
       localStorage.setItem('mu-gdpr-accepted', 'true');
       document.cookie = "mfn-gdpr=1; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
-      hideBanner();
+      removeBanner();
     }
 
     if (btn) {
@@ -659,22 +666,20 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 
     // Initial check
     if (isAccepted()) {
-      hideBanner();
+      removeBanner();
     } else {
       showBanner();
     }
 
-    // Re-check on load to be sure
+    // Re-check on load just in case
     window.addEventListener('load', () => {
-      if (isAccepted()) hideBanner();
+      if (isAccepted()) removeBanner();
     });
     
-    // Observer to prevent other scripts from showing it
+    // Observer as a fallback, but it will stop once element is removed
     const observer = new MutationObserver(() => {
       if (isAccepted()) {
-        if (banner.style.display !== 'none' || banner.classList.contains('show')) {
-          hideBanner();
-        }
+        removeBanner();
       }
     });
 
