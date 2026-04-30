@@ -21,6 +21,7 @@ input, textarea, select, button {
 html {
   scroll-padding-top: var(--mu-header-height);
   height: auto !important;
+  overscroll-behavior: none;
 }
 
 body {
@@ -403,13 +404,11 @@ body {
   height: 200svh;
   min-height: 1120px;
   background: #05070a;
-  pointer-events: none;
 }
 
 .mu-hero {
   position: sticky;
   top: var(--mu-header-height);
-  pointer-events: none;
   height: calc(100vh - var(--mu-header-height));
   height: calc(100svh - var(--mu-header-height));
   min-height: 580px;
@@ -442,7 +441,6 @@ body {
 }
 
 .mu-hero-content {
-  pointer-events: auto;
   color: #ffffff;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.48);
 }
@@ -910,7 +908,7 @@ body {
   }
 
   .mu-hero {
-    position: sticky;
+    position: fixed;
     top: var(--mu-header-height);
     left: 0;
     width: 100%;
@@ -1730,7 +1728,7 @@ svg path {
   color: var(--mu-black) !important;
 }
 
-#mfn-gdpr .mfn-gdpr-button {
+#mfn-gdpr .mu-gdpr-button {
   background: var(--mu-black) !important;
   color: #ffffff !important;
   border: none !important;
@@ -1746,7 +1744,7 @@ svg path {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }
 
-#mfn-gdpr .mfn-gdpr-button:hover {
+#mfn-gdpr .mu-gdpr-button:hover {
   background: #000000 !important;
 }
 
