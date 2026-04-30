@@ -5,6 +5,34 @@
 
 <meta charset="UTF-8" />
 <title>Forklift Kiralama Hizmetleri - MU&Bİ</title>
+<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777389997' type='text/css' media='all' />
+<style>
+  /* Critical Monochrome Overrides to prevent FOUC */
+  :root {
+    --mu-black: #0a0a0a;
+    --mu-black-dark: #000000;
+    --mu-wash: #f4f6f8;
+  }
+  body {
+    background-color: #f4f6f8 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    visibility: hidden; /* Hide until Inter font is likely ready or CSS is parsed */
+  }
+  .no-js body, body.loaded {
+    visibility: visible;
+  }
+</style>
+<script>
+  // Show body immediately if CSS is already loaded or after a tiny delay
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add('loaded');
+    document.body.style.visibility = 'visible';
+  });
+  window.addEventListener("load", function() {
+    document.body.classList.add('loaded');
+    document.body.style.visibility = 'visible';
+  });
+</script>
 
 		<!-- All in One SEO 4.8.2 - aioseo.com -->
 	<meta name="description" content="Türkiye genelinde kısa ve uzun dönem forklift kiralama, operatörlü forklift, saha keşfi, teslimat ve bakım desteği sunuyoruz." />
@@ -194,7 +222,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 			//});
 		  };</script>
 
-<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777389997' type='text/css' media='all' />
+
 
 </head>
 
@@ -396,21 +424,7 @@ Forklift Kiralama Çözümleri</h1>
 
 
 <!-- mfn_hook_bottom --><!-- mfn_hook_bottom -->
-<div id="mfn-gdpr" data-aligment="left" data-direction="vertical">
-  <div class="mfn-gdpr-image">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mu-cookie-svg">
-      <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
-      <path d="M8.5 8.5v.01"></path>
-      <path d="M16 15.5v.01"></path>
-      <path d="M12 12v.01"></path>
-      <path d="M11 17v.01"></path>
-      <path d="M7 14v.01"></path>
-    </svg>
-  </div>
-  <div class="mfn-gdpr-content">Web sitemizde size en iyi deneyimi sunabilmemiz için çerezleri kullanıyoruz. Bu siteyi kullanmaya devam ederseniz, bunu kabul ettiğinizi varsayarız. <a href="#">Açık Rıza Metni ve Beyanı</a>.</div>
-  <a class="mfn-gdpr-readmore" href="#" target="_blank">Gizlilik Politikası</a>
-  <button type="button" class="mfn-gdpr-button" id="mu-accept-gdpr">Kabul Et</button>
-</div>
+
 
 		<script>
 			window.RS_MODULES = window.RS_MODULES || {};
@@ -625,66 +639,6 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 })();
 </script>
 
-<script>
-  (function() {
-    const banner = document.getElementById('mfn-gdpr');
-    const btn = document.getElementById('mu-accept-gdpr');
-    if (!banner) return;
 
-    function isAccepted() {
-      return localStorage.getItem('mu-gdpr-accepted') === 'true' || document.cookie.indexOf('mfn-gdpr=1') > -1;
-    }
-
-    function removeBanner() {
-      if (banner && banner.parentNode) {
-        banner.remove();
-      }
-    }
-
-    function showBanner() {
-      if (!isAccepted()) {
-        banner.style.display = 'flex';
-        banner.classList.add('show');
-      } else {
-        removeBanner();
-      }
-    }
-
-    function acceptGDPR(e) {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      localStorage.setItem('mu-gdpr-accepted', 'true');
-      document.cookie = "mfn-gdpr=1; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
-      removeBanner();
-    }
-
-    if (btn) {
-      btn.addEventListener('click', acceptGDPR);
-    }
-
-    // Initial check
-    if (isAccepted()) {
-      removeBanner();
-    } else {
-      showBanner();
-    }
-
-    // Re-check on load just in case
-    window.addEventListener('load', () => {
-      if (isAccepted()) removeBanner();
-    });
-    
-    // Observer as a fallback, but it will stop once element is removed
-    const observer = new MutationObserver(() => {
-      if (isAccepted()) {
-        removeBanner();
-      }
-    });
-
-    observer.observe(banner, { attributes: true, attributeFilter: ['style', 'class'] });
-  })();
-</script>
 </body>
 </html>
