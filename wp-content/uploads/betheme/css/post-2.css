@@ -916,6 +916,9 @@ body {
     height: auto;
     min-height: auto;
     z-index: 1;
+    overflow: visible;
+    pointer-events: auto;
+    touch-action: auto;
   }
 
   .mu-hero {
@@ -924,10 +927,12 @@ body {
     left: auto;
     width: 100%;
     z-index: auto;
+    pointer-events: auto;
   }
 
   .mu-hero {
     min-height: 60vh;
+    overflow: visible;
   }
 
   .mu-hero-image {
