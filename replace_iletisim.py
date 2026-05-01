@@ -21,7 +21,7 @@ new_section = """<section id="iletisim" class="section mcb-section" style="paddi
 </form>
 </div>
 <div style="flex: 1 1 66.66%; min-height: 450px;">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12051.87321558503!2d28.6291667!3d40.9833333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa1177696478d%3A0x6b4f70b4d45c58a5!2sKavakl%C4%B1%2C%2034520%20Beylikduzu%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1714460000000!5m2!1str!2str" width="100%" height="100%" style="border:0; display:block; min-height: 450px;" allowfullscreen="" loading="lazy"></iframe>
+<iframe src="https://www.google.com/maps?q=Kavakl%C4%B1%20Yeni%20Cami%2C%20Kanarya%20Cd.%20No%3A5%2C%2034520%20Beylikd%C3%BCz%C3%BC%2F%C4%B0stanbul&amp;output=embed" width="100%" height="100%" style="border:0; display:block; min-height: 450px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 </div>
 </div>

@@ -602,7 +602,7 @@ body {
 
 #forklift-cozumleri .section_wrapper,
 #forklift-modelleri .section_wrapper,
-#operatorlu-kiralama .section_wrapper,
+#dizel-forklift-destegi .section_wrapper,
 .mcb-section-4cf5a22b6 .section_wrapper,
 .mcb-section-cul6pwz1p .section_wrapper,
 .mcb-section-kvl7gwxi6 .section_wrapper {
@@ -724,7 +724,7 @@ body {
 }
 
 #forklift-modelleri,
-#operatorlu-kiralama,
+#dizel-forklift-destegi,
 .mcb-section-4cf5a22b6,
 .mcb-section-cul6pwz1p,
 .mcb-section-kvl7gwxi6 {
@@ -732,7 +732,7 @@ body {
 }
 
 #forklift-modelleri h2,
-#operatorlu-kiralama h2 {
+#dizel-forklift-destegi h2 {
   color: var(--mu-ink) !important;
   font-size: 34px;
   line-height: 1.2;
@@ -991,7 +991,7 @@ body {
 
   #forklift-cozumleri .section_wrapper,
   #forklift-modelleri .section_wrapper,
-  #operatorlu-kiralama .section_wrapper,
+  #dizel-forklift-destegi .section_wrapper,
   .mcb-section-4cf5a22b6 .section_wrapper,
   .mcb-section-cul6pwz1p .section_wrapper,
   .mcb-section-kvl7gwxi6 .section_wrapper {
@@ -1012,7 +1012,7 @@ body {
   }
 
   #forklift-modelleri h2,
-  #operatorlu-kiralama h2 {
+  #dizel-forklift-destegi h2 {
     font-size: 27px;
   }
 
