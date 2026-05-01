@@ -2134,6 +2134,9 @@ svg path {
 }
 
 #iletisim .custom-contact-layout {
+  display: grid !important;
+  grid-template-columns: minmax(320px, 1fr) minmax(0, 2fr);
+  align-items: stretch;
   overflow: hidden;
   border: 1px solid var(--mu-border);
   border-radius: 0 !important;
@@ -2144,6 +2147,17 @@ svg path {
 #iletisim .custom-contact-form {
   background: #05070a !important;
   color: #ffffff !important;
+}
+
+#iletisim .custom-contact-map {
+  display: flex;
+  min-height: 100% !important;
+}
+
+#iletisim .custom-contact-map iframe {
+  flex: 1 1 auto;
+  height: auto !important;
+  min-height: 100% !important;
 }
 
 #iletisim .custom-contact-form h3 {
@@ -2368,6 +2382,20 @@ svg path {
 
   #iletisim .custom-contact-form {
     padding: 30px 22px !important;
+  }
+
+  #iletisim .custom-contact-layout {
+    display: grid !important;
+    grid-template-columns: 1fr;
+  }
+
+  #iletisim .custom-contact-map {
+    min-height: 300px !important;
+  }
+
+  #iletisim .custom-contact-map iframe {
+    height: 300px !important;
+    min-height: 300px !important;
   }
 
   #Footer {
