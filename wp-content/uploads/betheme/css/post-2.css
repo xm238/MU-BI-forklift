@@ -2851,6 +2851,24 @@ body.mu-scrolled #Top_bar a.responsive-menu-toggle:focus-visible {
   #Footer .widget_mfn_menu li a {
     color: rgba(255, 255, 255, 0.84) !important;
   }
+
+  #Footer .widgets_wrapper a,
+  #Footer .widgets_wrapper .textwidget a,
+  #Footer .widgets_wrapper .widget_text a,
+  #Footer .widgets_wrapper .widget_mfn_menu a {
+    color: #c9ccd2 !important;
+    border-bottom-color: rgba(201, 204, 210, 0.42) !important;
+    text-decoration-color: rgba(201, 204, 210, 0.42) !important;
+  }
+
+  #Footer .widgets_wrapper a:hover,
+  #Footer .widgets_wrapper .textwidget a:hover,
+  #Footer .widgets_wrapper .widget_text a:hover,
+  #Footer .widgets_wrapper .widget_mfn_menu a:hover {
+    color: #ffffff !important;
+    border-bottom-color: rgba(255, 255, 255, 0.72) !important;
+    text-decoration-color: rgba(255, 255, 255, 0.72) !important;
+  }
 }
 
 #forklift-cozumleri .mu-service-card-bg {
