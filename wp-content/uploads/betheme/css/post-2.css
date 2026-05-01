@@ -2793,6 +2793,22 @@ body.mu-scrolled #Top_bar a.responsive-menu-toggle:focus-visible {
   color: #05070a !important;
 }
 
+.mu-kvkk-note {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
+
+.mu-kvkk-note a {
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+.mu-kvkk-note a:hover {
+  border-bottom-color: #ffffff;
+}
+
 #Footer .widget_text,
 #Footer .widget_text p,
 #Footer .widget_text li,
