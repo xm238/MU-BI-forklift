@@ -288,7 +288,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax
 			//});
 		  };</script>
 
-<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777390011' type='text/css' media='all' />
+<link rel='stylesheet' id='mfn-post-local-styles-21777389997-css' href='wp-content/uploads/betheme/css/post-2.css?ver=1777390012' type='text/css' media='all' />
 
 </head>
 
@@ -794,11 +794,13 @@ window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {}
 
         trigger.addEventListener('click', event => {
             event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
             const willOpen = !switcher.classList.contains('is-open');
             closeAll(switcher);
             switcher.classList.toggle('is-open', willOpen);
             trigger.setAttribute('aria-expanded', String(willOpen));
-        });
+        }, true);
 
         menu.addEventListener('click', () => {
             switcher.classList.remove('is-open');

@@ -2662,7 +2662,10 @@ body.mu-scrolled #Top_bar a.responsive-menu-toggle:focus-visible {
   background-image: none !important;
   overflow: hidden !important;
   line-height: 0 !important;
-  position: relative !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 #forklift-cozumleri .mu-service-card-bg img {
@@ -2690,5 +2693,53 @@ body.mu-scrolled #Top_bar a.responsive-menu-toggle:focus-visible {
 @media only screen and (max-width: 767px) {
   #forklift-cozumleri {
     padding-top: 88px !important;
+  }
+}
+
+/* Desktop fixes after mobile card conversion */
+#Action_bar,
+#Action_bar .container,
+#Action_bar .column,
+#Action_bar .social-menu,
+#Action_bar .menu-item-gtranslate {
+  overflow: visible !important;
+}
+
+#Action_bar {
+  position: relative;
+  z-index: 10050 !important;
+}
+
+#Action_bar .menu-item-gtranslate {
+  z-index: 10060 !important;
+}
+
+#Action_bar .menu-item-gtranslate .dropdown-menu {
+  z-index: 10070 !important;
+}
+
+#Action_bar .menu-item-gtranslate.is-open .dropdown-menu,
+#Action_bar .menu-item-gtranslate:hover .dropdown-menu,
+#Action_bar .menu-item-gtranslate:focus-within .dropdown-menu {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+@media only screen and (max-width: 959px) {
+  #forklift-cozumleri .mu-service-card-bg {
+    position: relative !important;
+    inset: auto !important;
+    height: 190px !important;
+    min-height: 190px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #forklift-cozumleri .mu-service-card-bg {
+    height: 170px !important;
+    min-height: 170px !important;
   }
 }
